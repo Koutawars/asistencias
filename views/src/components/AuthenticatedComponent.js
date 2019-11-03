@@ -29,9 +29,7 @@ class AuthenticatedComponent extends Component {
             return(<h1>Cargando ...</h1>)
         }
         return (
-            <div>
-                {this.props.children}
-            </div>
+            <div>{React.cloneElement(this.props.children, {...this.state})}</div>
         );
     }
 }

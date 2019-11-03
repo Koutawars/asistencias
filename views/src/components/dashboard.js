@@ -2,7 +2,8 @@ import React, {Component} from 'react'
 
 class Dashboard extends Component {
     render(){
-        return (<div><h1>DASHBOARD</h1></div>)
+        console.log(this.props);
+        return (<div><h1>bienvenido {this.props.usuario} a la DASHBOARD.</h1></div>)
     }
 }
 

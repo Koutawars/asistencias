@@ -14,10 +14,12 @@ app.use(body_parser.urlencoded({extended:true}));
 
 app.use('/', express.static(path.resolve(__dirname + '/views/build/')));
 
+// logearse prueba
 app.post('/login', (req, res) => {
     // req.body
     var usuario = req.body.usuario;
     var password = req.body.password;
+    // acá estaría la conexión a la base de datos...
     if( !(usuario === 'admin' && password === 'admin')){
       res.status(401).send({
         error: 'usuario o contraseña inválidos'
@@ -26,14 +28,15 @@ app.post('/login', (req, res) => {
     }
     var tokenData = {
         usuario: usuario
-        // ANY DATA
+        // MAS DATOS...
     }
     var token = jwt.sign(tokenData, 'Contraseña secreta', {
-        expiresIn: 60 * 60 * 24 // expires in 24 hours
+        expiresIn: 60 * 60 * 24 //expira en 24 hora
      })
     res.json({ jwt: token});
 });
 
+// conseguir autorización 
 app.get('/getUser', (req, res) => {
     var token = req.headers['authorization']
     if(!token){
@@ -42,16 +45,13 @@ app.get('/getUser', (req, res) => {
         })
         return
     }
-
-    token = token.replace('Bearer ', '')
-
+    token = token.replace('Bearer ', '');
     jwt.verify(token, 'Contraseña secreta', function(err, user) {
       if (err) {
         res.status(401).send({
           error: 'Token inválido'
         })
       } else {
-        console.log(user);
         res.json(user);
       }
     })

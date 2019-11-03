@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import {getJwt} from '../helpers/jwt'
 
 class Login extends Component {
     State = {
@@ -21,6 +22,11 @@ class Login extends Component {
             localStorage.setItem('jwt', res.data.jwt);
             this.props.history.push('/');
         });
+    }
+    componentDidMount(){
+        if(getJwt()){
+            this.props.history.push('/');
+        }
     }
     render(){
         return (
