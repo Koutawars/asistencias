@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
-import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import Login from './components/login'
+import Dashboard from './components/dashboard'
 import AuthenticatedComponent from './components/AuthenticatedComponent'
 
 
@@ -8,8 +10,10 @@ class App extends Component {
       return (
         <BrowserRouter>
           <Switch>
-            <Route path={"/login"} component = {AuthenticatedComponent} ></Route>
-            <Redirect from="/" to="/login" />
+            <Route path={"/login"} component = {Login} ></Route>
+            <AuthenticatedComponent>
+              <Route path={"/"} component = {Dashboard} ></Route>
+            </AuthenticatedComponent>
           </Switch>
         </BrowserRouter>
       );
