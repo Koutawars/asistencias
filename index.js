@@ -2,12 +2,21 @@ var express = require('express'); // Importa la libreria express
 var app = express(); // ejecuta la librería
 var path = require('path'); // esta librería la trae node incluida, acá se require
 var body_parser = require('body-parser'); 
+var cors = require('cors');
+app.use(cors());
 
 app.set('views', path.join(__dirname ,'/views'));
 
+app.use(body_parser.json());
 app.use(body_parser.urlencoded({extended:true}));
 
 app.use('/', express.static(path.resolve(__dirname + '/views/build/')));
+
+app.post('/login', (req, res) => {
+    // req.body
+    res.json({ jwt: req.body.usuario + req.body.password });
+});
+
 
 app.get('*', (req,res) =>{
     res.sendFile(path.join(__dirname + '/views/build/index.html'));
