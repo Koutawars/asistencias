@@ -3,10 +3,14 @@ import axios from 'axios';
 import {getJwt} from '../helpers/jwt'
 
 class Login extends Component {
-    State = {
-        usuario: null,
-        password: null
-    };
+    constructor(props) {
+        super(props);  
+        this.state = {
+            usuario: null,
+            password: null,
+            error: null
+        };
+    }
     handleChange = (e) => {
         this.setState({
             [e.target.id]: e.target.value 
@@ -14,13 +18,21 @@ class Login extends Component {
     };
     handleSubmit = (e) => {
         e.preventDefault();
-        console.log(this.state);
         axios.post('http://localhost:5000/login',  {
             usuario: this.state.usuario,
             password: this.state.password
         }).then(res => {
             localStorage.setItem('jwt', res.data.jwt);
             this.props.history.push('/');
+            this.setState({
+                ...this.state,
+                error: ""
+            });
+        }).catch((err) => {
+            this.setState({
+                ...this.state,
+                error: err.response.data.error
+            })
         });
     }
     componentDidMount(){
@@ -29,10 +41,12 @@ class Login extends Component {
         }
     }
     render(){
+        let error = this.state.error ? (<div className = "error">{this.state.error}</div>): <div></div>;
         return (
             <div>
                 <h4>LOGIN</h4>
                 <form onSubmit = {this.handleSubmit}>
+                    {error}
                     <label htmlFor = "usuario">Usuario: </label>
                     <input type = "text" id ="usuario" onChange = {this.handleChange} />
                     <label htmlFor = "password">Contraseña: </label>
