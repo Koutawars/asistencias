@@ -1,9 +1,15 @@
 import React, {Component} from 'react'
+import NavBar from './NavBar'
+
 
 class Dashboard extends Component {
     render(){
-        console.log(this.props);
-        return (<div><h1>bienvenido {this.props.usuario} a la DASHBOARD.</h1></div>)
+        return (
+        <div>
+            <NavBar></NavBar>
+            <h1>bienvenido a la DASHBOARD.</h1> 
+        </div>
+            )
     }
 }
 

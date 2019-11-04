@@ -3,6 +3,7 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import Login from './components/login'
 import Dashboard from './components/dashboard'
 import AuthenticatedComponent from './components/AuthenticatedComponent'
+import MateriaDocente from './components/MateriaDocente'
 
 
 class App extends Component {
@@ -12,7 +13,8 @@ class App extends Component {
           <Switch>
             <Route path={"/login"} component = {Login} ></Route>
             <AuthenticatedComponent>
-              <Route path={"/"} component = {Dashboard} ></Route>
+              <Route path={"/materias"}  component={MateriaDocente} ></Route>
+              <Route path={"/"} exact component = {Dashboard} ></Route>
             </AuthenticatedComponent>
           </Switch>
         </BrowserRouter>
