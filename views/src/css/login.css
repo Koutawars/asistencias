@@ -1,0 +1,8 @@
+#containerLogin {
+    margin: 50px 20%;
+}
+@media (max-width: 600px) {
+    #containerLogin {
+        margin: 50px 5%;
+    }
+}

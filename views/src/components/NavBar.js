@@ -19,11 +19,13 @@ class NavBar extends Component {
     render() {
         return (
             <nav>
-                <ul>
-                    <li className={this.getNavLinkClass("/")}><NavLink to ="/">Inicio</NavLink></li>
-                    <li className={this.getNavLinkClass("/materias")}><NavLink to ="/materias">Académico</NavLink></li>
-                    <li><a href="/login" onClick = {this.logOut}>Cerrar sesión</a></li>
-                </ul>
+                <div className="nav-wrapper">
+                    <ul>
+                        <li className={this.getNavLinkClass("/")}><NavLink to ="/">Inicio</NavLink></li>
+                        <li className={this.getNavLinkClass("/materias")}><NavLink to ="/materias">Académico</NavLink></li>
+                        <li className="right"><a href="/login" onClick = {this.logOut}>Cerrar sesión</a></li>
+                    </ul>
+                </div>
             </nav>
         )
     }
