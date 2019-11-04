@@ -8,6 +8,9 @@ class NavBar extends Component {
 
         };
     }
+    getNavLinkClass = (path) => {
+        return this.props.location.pathname === path ? 'active' : '';
+      }
     logOut= (e) => {
         e.preventDefault();
         localStorage.clear();
@@ -17,8 +20,8 @@ class NavBar extends Component {
         return (
             <nav>
                 <ul>
-                    <li><NavLink to ="/">Inicio</NavLink></li>
-                    <li><NavLink to ="/materias">Académico</NavLink></li>
+                    <li className={this.getNavLinkClass("/")}><NavLink to ="/">Inicio</NavLink></li>
+                    <li className={this.getNavLinkClass("/materias")}><NavLink to ="/materias">Académico</NavLink></li>
                     <li><a href="/login" onClick = {this.logOut}>Cerrar sesión</a></li>
                 </ul>
             </nav>

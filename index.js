@@ -22,7 +22,7 @@ app.post('/login', (req, res) => {
     // acá estaría la conexión a la base de datos...
     if( !(usuario === 'admin' && password === 'admin')){
       res.status(401).send({
-        error: 'usuario o contraseña inválidos'
+        error: 'Usuario o contraseña inválidos'
       })
       return
     }
