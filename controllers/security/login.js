@@ -1,4 +1,3 @@
-
 var jwt = require('jsonwebtoken');
 var login = (req, res) => {
     // req.body

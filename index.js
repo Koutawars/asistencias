@@ -15,6 +15,9 @@ app.use(body_parser.urlencoded({extended:true}));
 
 app.use('/', express.static(path.resolve(__dirname + '/views/build/')));
 
+// conexión a la db
+require('./config/connectionDatabase');
+
 app.use('/api', api);
 
 app.get('*', (req,res) =>{
