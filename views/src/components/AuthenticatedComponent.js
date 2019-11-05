@@ -10,12 +10,13 @@ class AuthenticatedComponent extends Component {
             usuario:undefined
         }
     }
+
     componentDidMount() {
         const jwt = getJwt();
         if(!jwt){
             this.props.history.push('/login');
         }
-        axios.get('http://localhost:5000/getUser', 
+        axios.get('http://localhost:5000/api/auth', 
         {headers:{Authorization: `Bearer ${jwt}`}} )
         .then(res => this.setState({
             usuario: res.data.usuario
