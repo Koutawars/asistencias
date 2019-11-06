@@ -11,26 +11,26 @@ module.exports = async () => {
 
     const Op = Sequelize.Op
 
-    Usuario.hasMany(Grupo, { foreignkey: 'usuarioId'});
-    Grupo.belongsTo(Usuario, { foreignkey: 'usuarioId'});
+    Usuario.hasMany(Grupo, { foreignKey: 'usuarioId'});
+    Grupo.belongsTo(Usuario, { foreignKey: 'usuarioId'});
 
-    Materia.hasMany(Grupo, {foreignkey: 'materiaId'});
-    Grupo.belongsTo(Materia, {foreignkey: 'materiaId'});
+    Materia.hasMany(Grupo, {foreignKey: 'materiaId'});
+    Grupo.belongsTo(Materia, {foreignKey: 'materiaId'});
 
-    Lista.hasMany(Grupo, {foreignkey: 'listaId'});
-    Grupo.belongsTo(Lista, {foreignkey: 'listaId'});
+    Lista.hasMany(Grupo, {foreignKey: 'listaId'});
+    Grupo.belongsTo(Lista, {foreignKey: 'listaId'});
 
-    Horario.hasMany(Grupo, {foreignkey: 'horarioId'});
-    Grupo.belongsTo(Horario, {foreignkey: 'horarioId'});
+    Horario.hasMany(Grupo, {foreignKey: 'horarioId'});
+    Grupo.belongsTo(Horario, {foreignKey: 'horarioId'});
 
-    TipoUsuario.hasMany(Usuario, { foreignkey: 'tipoId'});
-    Usuario.belongsTo(TipoUsuario, { foreignkey: 'tipoId'});
+    TipoUsuario.hasMany(Usuario, { foreignKey: 'tipoId'});
+    Usuario.belongsTo(TipoUsuario, { foreignKey: 'tipoId'});
 
-    Grupo.hasMany(Clase, { foreignkey: 'grupoId'});
-    Clase.belongsTo(Grupo, { foreignkey: 'grupoId'});
+    Grupo.hasMany(Clase, { foreignKey: 'grupoId'});
+    Clase.belongsTo(Grupo, { foreignKey: 'grupoId'});
 
-    Usuario.hasMany(Lista, { foreignkey: 'usuarioId' });
-    Lista.belongsTo(Usuario, { foreignkey: 'usuarioId' });
+    Usuario.hasMany(Lista, { foreignKey: 'usuarioId' });
+    Lista.belongsTo(Usuario, { foreignKey: 'usuarioId' });
 
     const errHandler = (err) => {
         console.error("Error: ", err);
@@ -50,6 +50,7 @@ module.exports = async () => {
             email: "johanrobles@hotmail.com"
         }).catch(errHandler);
 
+        /*
         const clase = await Clase.create({
             usuarioId: usuario.id,
             tema: "como estudiar",
@@ -57,6 +58,6 @@ module.exports = async () => {
             horaInicio: "07:02:02",
             horaFinal: "11:02:02",
             observaciones: ""
-        }).catch(errHandler);
+        }).catch(errHandler);*/
     }
 };

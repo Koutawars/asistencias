@@ -16,7 +16,7 @@ class AuthenticatedComponent extends Component {
         if(!jwt){
             this.props.history.push('/login');
         }
-        axios.get('http://localhost:5000/api/auth', 
+        axios.post('http://localhost:5000/api/auth', 
         {headers:{Authorization: `Bearer ${jwt}`}} )
         .then(res => this.setState({
             usuario: res.data.usuario

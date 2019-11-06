@@ -4,6 +4,7 @@ var Sequelize = require('sequelize');
 const Usuario = require('../../models/Usuario');
 const Op = Sequelize.Op;
 var login = async (req, res) => {
+
     // req.body
     var usuario = req.body.usuario;
     var password = req.body.password;
