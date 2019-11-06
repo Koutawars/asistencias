@@ -29,7 +29,7 @@ class AuthenticatedComponent extends Component {
         if(this.state.usuario === undefined){
             return(<h1>Cargando ...</h1>)
         }
-            return(<div>{this.props.children}</div>);
+        return(<div>{this.props.children}</div>);
     }
 }
 export default withRouter(AuthenticatedComponent);
