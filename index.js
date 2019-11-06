@@ -3,7 +3,6 @@ var app = express(); // ejecuta la librería
 var path = require('path'); // esta librería la trae node incluida, acá se require
 var body_parser = require('body-parser'); 
 var cors = require('cors');
-var api = require('./controllers/main');
 
 
 app.use(cors());
@@ -18,6 +17,9 @@ app.use('/', express.static(path.resolve(__dirname + '/views/build/')));
 // conexión a la db
 require('./config/connectionDatabase');
 
+require('./models/bootstrap')();
+// api
+var api = require('./controllers/main');
 app.use('/api', api);
 
 app.get('*', (req,res) =>{

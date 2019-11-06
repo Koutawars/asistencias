@@ -1,7 +1,9 @@
-const Sequelize = require('sequelize');
+'use strict';
 
-module.exports = sequelize.define("Usuario", {
-    id: {
+module.exports = {
+  up: (queryInterface, Sequelize) => {
+    return queryInterface.createTable("usuarios", {
+      id: {
         type: Sequelize.INTEGER(11),
         allowNull: false,
         autoIncrement: true,
@@ -32,4 +34,10 @@ module.exports = sequelize.define("Usuario", {
         type: Sequelize.STRING,
         allowNull: false
       }
-});
+    });
+  },
+
+  down: (queryInterface, Sequelize) => {
+    return queryInterface.dropTable("usuarios");
+  }
+};
