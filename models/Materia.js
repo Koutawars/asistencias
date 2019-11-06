@@ -1,25 +1,18 @@
 const Sequelize = require('sequelize');
 
-module.exports = sequelize.define("Clase", {
+module.exports = sequelize.define("Materia", {
     id: {
         type: Sequelize.INTEGER(11),
         allowNull: false,
         autoIncrement: true,
         primaryKey: true
-    }, 
-    grupoId: {
-        type: Sequelize.INTEGER(11),
-        allowNull: false
     },
-    tema: {
+    nombre: {
         type: Sequelize.STRING,
         allowNull: false
     },
-    fecha: {
-        type: Sequelize.DATE,
+    creditos: {
+        type: Sequelize.INTEGER,
         allowNull: false
-    },
-    observaciones: {
-        type: Sequelize.TEXT
     }
 });

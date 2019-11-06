@@ -2,14 +2,36 @@ const Sequelize = require('sequelize');
 
 module.exports = async () => {
     const Clase = require('./Clase');
-    const Usuario = require('./Usuario');
+    const Grupo = require('./Grupo');
+    const Horario = require('./Horario');
+    const Lista = require('./Lista');
+    const Materia= require('./Materia');
     const TipoUsuario = require('./TipoUsuario');
+    const Usuario = require('./Usuario');
+
     const Op = Sequelize.Op
 
+    Usuario.hasMany(Grupo, { foreignkey: 'usuarioId'});
+    Grupo.belongsTo(Usuario, { foreignkey: 'usuarioId'});
 
-    Usuario.hasMany(Clase, { foreignkey: 'usuarioId' });
-    Clase.belongsTo(Usuario, { foreignkey: 'usuarioId' });
-    /*
+    Materia.hasMany(Grupo, {foreignkey: 'materiaId'});
+    Grupo.belongsTo(Materia, {foreignkey: 'materiaId'});
+
+    Lista.hasMany(Grupo, {foreignkey: 'listaId'});
+    Grupo.belongsTo(Lista, {foreignkey: 'listaId'});
+
+    Horario.hasMany(Grupo, {foreignkey: 'horarioId'});
+    Grupo.belongsTo(Horario, {foreignkey: 'horarioId'});
+
+    TipoUsuario.hasMany(Usuario, { foreignkey: 'tipoId'});
+    Usuario.belongsTo(TipoUsuario, { foreignkey: 'tipoId'});
+
+    Grupo.hasMany(Clase, { foreignkey: 'grupoId'});
+    Clase.belongsTo(Grupo, { foreignkey: 'grupoId'});
+
+    Usuario.hasMany(Lista, { foreignkey: 'usuarioId' });
+    Lista.belongsTo(Usuario, { foreignkey: 'usuarioId' });
+
     const errHandler = (err) => {
         console.error("Error: ", err);
     };
@@ -37,31 +59,4 @@ module.exports = async () => {
             observaciones: ""
         }).catch(errHandler);
     }
-    
-   var usuarios;
-    try {
-        usuarios = await Usuario.findOne({
-            where: {
-                [Op.and]:[
-                    {
-                        [Op.or]:[
-                            {
-                                documento: 1076089044
-                            },
-                            {
-                                codigo: 1234
-                            }
-                        ]
-                    },
-                    {
-                        password: '123'
-                    }
-                ]
-            }
-        })
-    }catch(err){
-        errHandler(err);
-    }
-    if(usuarios)console.log(usuarios.dataValues);
-    */
 };

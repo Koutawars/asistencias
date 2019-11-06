@@ -5,6 +5,9 @@ var login = require('./security/login');
 
 // ruta libre, login
 router.post('/login', login);
+// [POST] http://localhost:5000/api/login 
+// Retorna el token
+
 
 // usar el middleware
 router.use(auth);
@@ -13,5 +16,7 @@ router.use(auth);
 router.get('/auth', (req, res) => {
     res.json(req.tokenInfo);
 });
+// [POST] http://localhost:5000/api/auth 
+// valida el token y retorna la información del token
 
 module.exports = router;

@@ -2,38 +2,37 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('clases', { 
+    return queryInterface.createTable('grupos', { 
       id: {
         type: Sequelize.INTEGER(11),
         allowNull: false,
         autoIncrement: true,
         primaryKey: true
-      },  
-      grupoId: {
+      },
+      materiaId: {
           type: Sequelize.INTEGER(11),
           allowNull: false
       },
-      tema: {
-          type: Sequelize.STRING,
+      usuarioId: {
+          type: Sequelize.INTEGER(11),
           allowNull: false
       },
-      fecha: {
-          type: Sequelize.DATE,
+      listaId: {
+          type: Sequelize.INTEGER(11),
           allowNull: false
       },
-      horaInicio: {
-          type: Sequelize.TIME
+      numero: {
+          type: Sequelize.INTEGER(11),
+          allowNull: false
       },
-      horaFinal: {
-          type: Sequelize.TIME
-      },
-      observaciones: {
-          type: Sequelize.TEXT
+      horarioId: {
+          type: Sequelize.INTEGER(11),
+          allowNull: false
       }
     });
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('clases');
+    return queryInterface.dropTable('grupos');
   }
 };
