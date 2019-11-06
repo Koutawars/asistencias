@@ -16,11 +16,20 @@ class AuthenticatedComponent extends Component {
         if(!jwt){
             this.props.history.push('/login');
         }
-        axios.post('http://localhost:5000/api/auth', 
-        {headers:{Authorization: `Bearer ${jwt}`}} )
-        .then(res => this.setState({
-            usuario: res.data.usuario
-        })).catch(err => {
+        axios.post('http://localhost:5000/api/auth', {},
+        {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${jwt}`
+            }
+        } )
+        .then(res => {
+            this.setState({
+                usuario: res.data.usuario
+            });
+            console.log(res);
+        }).catch(err => {
+            console.log(err);
             localStorage.removeItem('jwt');
             this.props.history.push('/login');
         });

@@ -24,6 +24,7 @@ class Login extends Component {
             password: this.state.password
         }).then(res => {
             localStorage.setItem('jwt', res.data.jwt);
+            
             this.props.history.push('/');
             this.setState({
                 ...this.state,
