@@ -50,6 +50,25 @@ module.exports = async () => {
             email: "johanrobles@hotmail.com"
         }).catch(errHandler);
 
+        const materia = await Materia.create({
+            nombre: "Arquitectura de software",
+            creditos: 4
+        });
+
+        const horario = await Horario.create({
+            dia: 6,
+            horaInicial: "07:00:00",
+            horaFinal: "11:00:00"
+        })
+
+        const grupo = await Grupo.create({
+            materiaId: materia.id,
+            usuarioId: usuario.id,
+            listaId: null,
+            numero: 1,
+            horarioId: horario.id
+        })
+
         /*
         const clase = await Clase.create({
             usuarioId: usuario.id,

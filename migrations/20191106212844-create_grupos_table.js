@@ -19,7 +19,7 @@ module.exports = {
       },
       listaId: {
           type: Sequelize.INTEGER(11),
-          allowNull: false
+          allowNull: true
       },
       numero: {
           type: Sequelize.INTEGER(11),

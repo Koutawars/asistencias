@@ -17,7 +17,7 @@ module.exports = sequelize.define("Grupo", {
     },
     listaId: {
         type: Sequelize.INTEGER(11),
-        allowNull: false
+        allowNull: true
     },
     numero: {
         type: Sequelize.INTEGER(11),
@@ -27,4 +27,6 @@ module.exports = sequelize.define("Grupo", {
         type: Sequelize.INTEGER(11),
         allowNull: false
     }
+}, {
+    tableName: 'grupos'
 });

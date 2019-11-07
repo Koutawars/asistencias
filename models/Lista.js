@@ -11,4 +11,6 @@ module.exports = sequelize.define("Lista", {
         type: Sequelize.INTEGER(11),
         allowNull: false
     }
+}, {
+    tableName: 'listas'
 });

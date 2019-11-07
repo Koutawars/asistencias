@@ -20,14 +20,14 @@ router.post('/auth', (req, res) => {
 // valida el token y retorna la información del token
 
 // usuario API
-var getUser = require('./usuario/getUser')
-
+var getUser = require('./usuario/getUser');
+var getMateria = require('./usuario/getMateria');
 
 // regresar toda la información del usuario
 // [get] http://localhost:5000/api/getUser 
 router.get('/getUser', getUser);
 
-
+router.get('/getMateria', getMateria);
 
 
 module.exports = router;

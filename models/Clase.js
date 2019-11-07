@@ -22,4 +22,6 @@ module.exports = sequelize.define("Clase", {
     observaciones: {
         type: Sequelize.TEXT
     }
+}, {
+    tableName: 'clases'
 });
