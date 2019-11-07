@@ -11,8 +11,6 @@ module.exports = async () => {
     const Usuario_lista = require('./Usuario_lista');
     const Horario_grupo = require('./horario_grupo');
 
-    const Op = Sequelize.Op
-
     Usuario.hasMany(Grupo, { foreignKey: 'usuarioId'});
     Grupo.belongsTo(Usuario, { foreignKey: 'usuarioId'});
 
