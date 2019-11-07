@@ -4,8 +4,11 @@ var Horario = require('../../../models/Horario');
 
 var getGrupo = async (req, res) => {
     var usuarioId = req.tokenInfo.id;
+    var materiaId = req.params.id;
     const grupo = await Grupo.findAll({
-        group: ['id'],
+        where: {
+            materiaId
+        },
         include: [{
             attributes:[],
             model: Usuario,

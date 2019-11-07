@@ -69,14 +69,11 @@ module.exports = async () => {
             horarioId: horario.id
         })
 
-        /*
         const clase = await Clase.create({
-            usuarioId: usuario.id,
-            tema: "como estudiar",
+            grupoId: grupo.id,
+            tema: "Como hacer documentación.",
             fecha: "2019-06-11",
-            horaInicio: "07:02:02",
-            horaFinal: "11:02:02",
             observaciones: ""
-        }).catch(errHandler);*/
+        }).catch(errHandler);
     }
 };
