@@ -11,6 +11,7 @@ var addClases = async (req, res) => {
     var observaciones = req.body.observaciones;
     const Op = Sequelize.Op;
     /*
+        EJEMPLO JSON por POST
         {
             "tema": "Hola este un tema",
             "fecha": "2019-07-11",
