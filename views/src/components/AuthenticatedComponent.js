@@ -25,7 +25,8 @@ class AuthenticatedComponent extends Component {
         } )
         .then(res => {
             this.setState({
-                usuario: res.data.usuario
+                usuario: res.data.usuario,
+                tipoId: res.data.tipoId
             });
             console.log(res);
         }).catch(err => {
@@ -38,7 +39,11 @@ class AuthenticatedComponent extends Component {
         if(this.state.usuario === undefined){
             return(<h1>Cargando ...</h1>)
         }
-        return(<div>{this.props.children}</div>);
+        const childrenWithProps = React.Children.map(this.props.children, child =>
+            React.cloneElement(child, { ...this.state })
+        );
+      
+          return <div>{childrenWithProps}</div>;
     }
 }
 export default withRouter(AuthenticatedComponent);
