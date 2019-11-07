@@ -1,6 +1,7 @@
-#containerLogin {
-    margin: 50px 20%;
+.ver {
+    padding-top: 5%;
 }
+
 @media (max-width: 600px) {
     #containerLogin {
         margin: 50px 5%;

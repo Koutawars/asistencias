@@ -1,12 +1,12 @@
 import React, {Component} from 'react'
-import NavBar from './NavBar'
+import NavbarLog from './NavbarLog'
 
 
 class Dashboard extends Component {
     render(){
         return (
         <div>
-            <NavBar></NavBar>
+            <NavbarLog></NavbarLog>
             <h1>bienvenido a la DASHBOARD.</h1> 
         </div>
             )
