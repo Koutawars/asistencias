@@ -37,18 +37,35 @@ module.exports = async () => {
     };
     var datoPrueba = false;
     if(datoPrueba){
+
         const tipoUsuario = await TipoUsuario.create({
             tipo: "profesor"
+        });        
+        const tipoUsuario1 = await TipoUsuario.create({
+            tipo: "estudiante"
         });
         
         const usuario = await Usuario.create({
             tipoId: tipoUsuario.id,
             nombre: "Johan David Robles Lozano",
             password: '123',
-            codigo: 123,
-            documento: 1076089044,
+            codigo: null,
+            documento: 123,
             email: "johanrobles@hotmail.com"
         }).catch(errHandler);
+
+        const usuario1 = await Usuario.create({
+            tipoId: tipoUsuario1.id,
+            nombre: "Carlos Miguel Campo Navarro",
+            password: '1234',
+            codigo: 1234,
+            documento: 1076089044,
+            email: "ccampo@gmail.com"
+        }).catch(errHandler);
+
+        const lista = await Lista.create({
+            usuarioId: usuario1.id
+        });
 
         const materia = await Materia.create({
             nombre: "Arquitectura de software",

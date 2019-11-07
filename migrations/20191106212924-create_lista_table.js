@@ -8,10 +8,6 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true
-      },
-      usuarioId: {
-          type: Sequelize.INTEGER(11),
-          allowNull: false
       }
     });
   },

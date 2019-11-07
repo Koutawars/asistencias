@@ -1,4 +1,3 @@
-var Usuario = require('../../../models/Usuario');
 var Grupo = require('../../../models/Grupo');
 var Clase = require('../../../models/Clase');
 var Materia = require('../../../models/Materia');

@@ -6,10 +6,6 @@ module.exports = sequelize.define("Lista", {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true
-    },
-    usuarioId: {
-        type: Sequelize.INTEGER(11),
-        allowNull: false
     }
 }, {
     tableName: 'listas'
