@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import {getJwt} from '../helpers/jwt'
 import M from 'materialize-css'
-import "./../css/login.css"
+import "./../css/Login.css"
 
 class Login extends Component {
     constructor(props) {

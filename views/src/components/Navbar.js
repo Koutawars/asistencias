@@ -10,8 +10,7 @@ class Navbar extends React.Component {
         <div className="navbar-fixed">
             <nav>
                 <div className="nav-wrapper blue">
-                    
-                    <div className="row">
+                        <div className="row">
                         <div className="col s7 push-s5"><span>Grupo de control y registro academico</span></div>
                         <div className="col s5 pull-s7"><span className="flow-text">Logo</span></div>
                     </div>

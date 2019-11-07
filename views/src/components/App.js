@@ -11,7 +11,6 @@ import Dashboard from './dashboard';
 import AuthenticatedComponent from './AuthenticatedComponent';
 import MateriaDocente from './MateriaDocente';
 
-
 class App extends Component {
     render(){
       return (
