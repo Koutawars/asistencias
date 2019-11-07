@@ -21,13 +21,16 @@ router.post('/auth', (req, res) => {
 
 // usuario API
 var getUser = require('./usuario/getUser');
-var getMateria = require('./usuario/getMateria');
+var getMateria = require('./usuario/docente/getMateria');
+var getGrupo = require('./usuario/docente/getGrupo')
 
 // regresar toda la información del usuario
 // [get] http://localhost:5000/api/getUser 
 router.get('/getUser', getUser);
 
-router.get('/getMateria', getMateria);
+router.get('/docente/getMateria', getMateria);
+
+router.get('/docente/getGrupo', getGrupo);
 
 
 module.exports = router;
