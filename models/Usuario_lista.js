@@ -3,6 +3,12 @@
 const Sequelize = require('sequelize');
 
 module.exports = sequelize.define("Usuario_lista", {
+    id: {
+        primaryKey: true,
+        type: Sequelize.INTEGER(11),
+        allowNull: false,
+        autoIncrement: true,
+    },
     usuarioId: {
         type: Sequelize.INTEGER(11),
         allowNull: false

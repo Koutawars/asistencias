@@ -1,4 +1,3 @@
-var Usuario = require('../../../models/Usuario');
 var Grupo = require('../../../models/Grupo');
 var Materia = require('../../../models/Materia');
 
@@ -11,12 +10,9 @@ var getMateria = async (req, res) => {
             {
                 model: Grupo,
                 attributes:[],
-                include: [{
-                    model: Usuario,
-                    where: {
-                        id: usuarioId
-                    }
-                }] 
+                where: {
+                    usuarioId
+                }
             }
         ]
     }).catch(err => {

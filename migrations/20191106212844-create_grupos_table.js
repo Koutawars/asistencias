@@ -24,10 +24,6 @@ module.exports = {
       numero: {
           type: Sequelize.INTEGER(11),
           allowNull: false
-      },
-      horarioId: {
-          type: Sequelize.INTEGER(11),
-          allowNull: false
       }
     });
   },

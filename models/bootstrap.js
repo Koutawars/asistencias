@@ -8,6 +8,8 @@ module.exports = async () => {
     const Materia= require('./Materia');
     const TipoUsuario = require('./TipoUsuario');
     const Usuario = require('./Usuario');
+    const Usuario_lista = require('./Usuario_lista');
+    const Horario_grupo = require('./horario_grupo');
 
     const Op = Sequelize.Op
 
@@ -20,33 +22,37 @@ module.exports = async () => {
     Lista.hasMany(Grupo, {foreignKey: 'listaId'});
     Grupo.belongsTo(Lista, {foreignKey: 'listaId'});
 
-    Horario.hasMany(Grupo, {foreignKey: 'horarioId'});
-    Grupo.belongsTo(Horario, {foreignKey: 'horarioId'});
-
     TipoUsuario.hasMany(Usuario, { foreignKey: 'tipoId'});
     Usuario.belongsTo(TipoUsuario, { foreignKey: 'tipoId'});
 
     Grupo.hasMany(Clase, { foreignKey: 'grupoId'});
     Clase.belongsTo(Grupo, { foreignKey: 'grupoId'});
 
-    Usuario.hasMany(Lista, { foreignKey: 'usuarioId' });
-    Lista.belongsTo(Usuario, { foreignKey: 'usuarioId' });
+    Usuario.hasMany(Usuario_lista, {foreignKey: 'usuarioId'});
+    Usuario_lista.belongsTo(Usuario, {foreignKey: 'usuarioId'});
+
+    Lista.belongsTo(Usuario_lista, {foreignKey: 'listaId'});
+    Usuario_lista.belongsTo(Lista, {foreignKey: 'listaId'});
+
+    Grupo.hasMany(Horario_grupo, {foreignKey: 'grupoId'});
+    Horario_grupo.belongsTo(Grupo, {foreignKey: 'grupoId'});
+
+    Horario.belongsTo(Horario_grupo, {foreignKey: 'horarioId'});
+    Horario_grupo.belongsTo(Horario, {foreignKey: 'horarioId'});
 
     const errHandler = (err) => {
         console.error("Error: ", err);
     };
     var datoPrueba = false;
     if(datoPrueba){
-
-        const tipoUsuario = await TipoUsuario.create({
+        const tipoProfesor = await TipoUsuario.create({
             tipo: "profesor"
         });        
-        const tipoUsuario1 = await TipoUsuario.create({
+        const tipoEstudiante = await TipoUsuario.create({
             tipo: "estudiante"
         });
-        
         const usuario = await Usuario.create({
-            tipoId: tipoUsuario.id,
+            tipoId: tipoProfesor.id,
             nombre: "Johan David Robles Lozano",
             password: '123',
             codigo: null,
@@ -55,7 +61,7 @@ module.exports = async () => {
         }).catch(errHandler);
 
         const usuario1 = await Usuario.create({
-            tipoId: tipoUsuario1.id,
+            tipoId: tipoEstudiante.id,
             nombre: "Carlos Miguel Campo Navarro",
             password: '1234',
             codigo: 1234,
@@ -63,8 +69,11 @@ module.exports = async () => {
             email: "ccampo@gmail.com"
         }).catch(errHandler);
 
-        const lista = await Lista.create({
-            usuarioId: usuario1.id
+        const lista = await Lista.create({});
+
+        const usuario_lista = await Usuario_lista.create({
+            usuarioId: usuario1.id,
+            listaId: lista.id
         });
 
         const materia = await Materia.create({
@@ -76,20 +85,24 @@ module.exports = async () => {
             dia: 6,
             horaInicial: "07:00:00",
             horaFinal: "11:00:00"
-        })
+        });
 
         const grupo = await Grupo.create({
             materiaId: materia.id,
             usuarioId: usuario.id,
-            listaId: null,
-            numero: 1,
+            listaId: lista.id,
+            numero: 1
+        });
+        
+        const horario_grupo = await Horario_grupo.create({
+            grupoId: grupo.id,
             horarioId: horario.id
-        })
+        });
 
         const clase = await Clase.create({
             grupoId: grupo.id,
             tema: "Como hacer documentación.",
-            fecha: "2019-06-11",
+            fecha: "2019-08-11",
             observaciones: ""
         }).catch(errHandler);
     }
