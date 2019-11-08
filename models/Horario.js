@@ -19,4 +19,6 @@ module.exports = sequelize.define("Horario", {
         type: Sequelize.TIME, 
         allowNull: false
     }
+}, {
+    tableName: 'horarios'
 });

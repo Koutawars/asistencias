@@ -1,15 +1,13 @@
+// tabla intermedia entre usuario y lista
+
 const Sequelize = require('sequelize');
 
-module.exports = sequelize.define("Grupo", {
+module.exports = sequelize.define("Usuario_lista", {
     id: {
+        primaryKey: true,
         type: Sequelize.INTEGER(11),
         allowNull: false,
         autoIncrement: true,
-        primaryKey: true
-    },
-    materiaId: {
-        type: Sequelize.INTEGER(11),
-        allowNull: false
     },
     usuarioId: {
         type: Sequelize.INTEGER(11),
@@ -17,12 +15,8 @@ module.exports = sequelize.define("Grupo", {
     },
     listaId: {
         type: Sequelize.INTEGER(11),
-        allowNull: true
-    },
-    numero: {
-        type: Sequelize.INTEGER(11),
         allowNull: false
     }
 }, {
-    tableName: 'grupos'
+    tableName: 'usuario_listas'
 });

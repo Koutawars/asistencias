@@ -8,7 +8,7 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true
-      },  
+      }, 
       grupoId: {
           type: Sequelize.INTEGER(11),
           allowNull: false
@@ -18,14 +18,8 @@ module.exports = {
           allowNull: false
       },
       fecha: {
-          type: Sequelize.DATE,
+          type: Sequelize.DATEONLY,
           allowNull: false
-      },
-      horaInicio: {
-          type: Sequelize.TIME
-      },
-      horaFinal: {
-          type: Sequelize.TIME
       },
       observaciones: {
           type: Sequelize.TEXT

@@ -16,11 +16,21 @@ class AuthenticatedComponent extends Component {
         if(!jwt){
             this.props.history.push('/login');
         }
-        axios.post('http://localhost:5000/api/auth', 
-        {headers:{Authorization: `Bearer ${jwt}`}} )
-        .then(res => this.setState({
-            usuario: res.data.usuario
-        })).catch(err => {
+        axios.post('http://localhost:5000/api/auth', {},
+        {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${jwt}`
+            }
+        } )
+        .then(res => {
+            this.setState({
+                usuario: res.data.usuario,
+                tipoId: res.data.tipoId
+            });
+            console.log(res);
+        }).catch(err => {
+            console.log(err);
             localStorage.removeItem('jwt');
             this.props.history.push('/login');
         });
@@ -29,7 +39,11 @@ class AuthenticatedComponent extends Component {
         if(this.state.usuario === undefined){
             return(<h1>Cargando ...</h1>)
         }
-        return(<div>{this.props.children}</div>);
+        const childrenWithProps = React.Children.map(this.props.children, child =>
+            React.cloneElement(child, { ...this.state })
+        );
+      
+          return <div>{childrenWithProps}</div>;
     }
 }
 export default withRouter(AuthenticatedComponent);

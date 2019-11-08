@@ -15,4 +15,6 @@ module.exports = sequelize.define("Materia", {
         type: Sequelize.INTEGER,
         allowNull: false
     }
+}, {
+    tableName: 'materias'
 });

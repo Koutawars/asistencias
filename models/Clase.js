@@ -16,10 +16,12 @@ module.exports = sequelize.define("Clase", {
         allowNull: false
     },
     fecha: {
-        type: Sequelize.DATE,
+        type: Sequelize.DATEONLY,
         allowNull: false
     },
     observaciones: {
         type: Sequelize.TEXT
     }
+}, {
+    tableName: 'clases'
 });

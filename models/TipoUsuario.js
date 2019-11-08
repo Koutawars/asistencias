@@ -11,4 +11,6 @@ module.exports = sequelize.define("TipoUsuario", {
         type: Sequelize.STRING,
         allowNull: false
       }
-    });
+    }, {
+      tableName: 'tipousuarios'
+  });
