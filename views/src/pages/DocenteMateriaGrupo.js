@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { FaSearch } from 'react-icons/fa';
+import { FaSearch, FaPlus } from 'react-icons/fa';
 import ListaClases from '../components/ListaClases';
 import NavbarLog from '../components/NavbarLog';
+import { Link } from 'react-router-dom';
 
 class DocenteMateriaGrupo extends Component {
 
@@ -84,6 +85,13 @@ class DocenteMateriaGrupo extends Component {
                             </div>
                         </div>
                     </div>
+
+                    <div class="fixed-action-btn">
+                        <Link class="btn-floating btn-large green" to="/docente">
+                            <FaPlus class="center-align">plus</FaPlus>
+                        </Link>
+                    </div>
+                        
                 </div>
             </React.Fragment>
         );

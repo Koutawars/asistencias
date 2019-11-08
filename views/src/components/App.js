@@ -22,7 +22,6 @@ class App extends Component {
               <Route exact path={"/docente/academico"} component = {DocenteAcademico} ></Route>
               <Route exact path={"/docente/academico/grupo"} component = {DocenteGrupos} ></Route>
               <Route exact path={"/docente/academico/grupo/materia"}  component={DocenteMateriaGrupo} ></Route>
-              <Route exact path={"/dash"} exact component = {Dashboard} ></Route>
               
               <AuthenticatedComponent>
               </AuthenticatedComponent>
