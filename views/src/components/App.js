@@ -9,11 +9,7 @@ import Layout from './Layout';
 import Login from '../pages/Login';
 import Dashboard from './dashboard';
 import AuthenticatedComponent from './AuthenticatedComponent';
-<<<<<<< HEAD
 import DocenteMateriaGrupo from '../pages/DocenteMateriaGrupo';
-=======
-import MateriaDocente from './MateriaDocente';
->>>>>>> f6434d7143b9c9ac825b03b5d36e38c18a4add0f
 
 class App extends Component {
     render(){
