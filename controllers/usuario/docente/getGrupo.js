@@ -1,5 +1,6 @@
 var Usuario = require('../../../models/Usuario');
 var Grupo = require('../../../models/Grupo');
+var Horario_grupo = require('../../../models/horario_grupo');
 var Horario = require('../../../models/Horario');
 
 var getGrupo = async (req, res) => {
@@ -16,7 +17,10 @@ var getGrupo = async (req, res) => {
                 id: usuarioId
             }
         },{
-            model: Horario
+            model: Horario_grupo,
+            include: [{
+                model:Horario
+            }]
         }
     ] 
     }).catch(err => {

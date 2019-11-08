@@ -10,6 +10,7 @@ module.exports = async () => {
     const Usuario = require('./Usuario');
     const Usuario_lista = require('./Usuario_lista');
     const Horario_grupo = require('./horario_grupo');
+    const Usuario_clase = require('./Usuario_clase');
 
     Usuario.hasMany(Grupo, { foreignKey: 'usuarioId'});
     Grupo.belongsTo(Usuario, { foreignKey: 'usuarioId'});
@@ -26,18 +27,26 @@ module.exports = async () => {
     Grupo.hasMany(Clase, { foreignKey: 'grupoId'});
     Clase.belongsTo(Grupo, { foreignKey: 'grupoId'});
 
+    Usuario.hasMany(Grupo, { foreignKey: 'usuarioId'} )
+    Grupo.belongsTo(Usuario, { foreignKey: 'usuarioId'});
+
     Usuario.hasMany(Usuario_lista, {foreignKey: 'usuarioId'});
     Usuario_lista.belongsTo(Usuario, {foreignKey: 'usuarioId'});
 
-    Lista.belongsTo(Usuario_lista, {foreignKey: 'listaId'});
+    Lista.hasMany(Usuario_lista, {foreignKey: 'listaId'});
     Usuario_lista.belongsTo(Lista, {foreignKey: 'listaId'});
 
     Grupo.hasMany(Horario_grupo, {foreignKey: 'grupoId'});
     Horario_grupo.belongsTo(Grupo, {foreignKey: 'grupoId'});
 
-    Horario.belongsTo(Horario_grupo, {foreignKey: 'horarioId'});
+    Horario.hasMany(Horario_grupo, {foreignKey: 'horarioId'});
     Horario_grupo.belongsTo(Horario, {foreignKey: 'horarioId'});
 
+    Usuario.hasMany(Usuario_clase, {foreignKey: 'usuarioId'});
+    Usuario_clase.belongsTo(Usuario, {foreignKey: 'usuarioId'});
+    
+    Clase.hasMany(Usuario_clase, {foreignKey: 'claseId'});
+    Usuario_clase.belongsTo(Clase, {foreignKey: 'claseId'});
     const errHandler = (err) => {
         console.error("Error: ", err);
     };
