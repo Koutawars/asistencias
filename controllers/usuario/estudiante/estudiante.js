@@ -8,10 +8,11 @@ var getMiClases = require('./getMiClases');
 router.get('/getMateria', getMateria);
 
 // numero de clases donde id es el numero del grupo
-// http://localhost:5000/api/estudiante/:id/getNumClases
+// [GET] http://localhost:5000/api/estudiante/:id/getNumClases
 router.get('/:id/getNumClases', getClases);
 
 // numero de mis clases que he asistido donde el id es el id del grupo
+// [GET] http://localhost:5000/api/estudiante/1/getNumMiClases
 router.get('/:id/getNumMiClases', getMiClases);
 
 
