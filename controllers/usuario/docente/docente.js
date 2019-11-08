@@ -6,6 +6,7 @@ var getClases = require('./getClases');
 var addClase = require('./addClase');
 var getEstudiantes = require('./getEstudiantes');
 var addEstudianteClase = require('./addEstudianteClase');
+var deleteClase = require('./deleteClase');
 
 // traer materias
 // http://localhost:5000/api/docente/getMaterias
@@ -29,5 +30,8 @@ router.get('/:id/getEstudiantes', getEstudiantes);
 // id = claseId, idEstudiante = usuarioId(de un estudiante lol)
 router.post('/:id/:idEstudiante/addEstudianteClase', addEstudianteClase);
 
+// ID = id de la clase que va a borrar
+// http://localhost:5000/api/docente/:id/deleteClase
+router.delete('/:id/deleteClase', deleteClase);
 
 module.exports = router;
