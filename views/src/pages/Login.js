@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import {getJwt} from '../helpers/jwt'
 import M from 'materialize-css'
@@ -41,21 +42,39 @@ class Login extends Component {
     }
     render(){
         return (
-            <div id ="containerLogin" className="row">
-                <h4>Login</h4>
-                <form className="col s12" onSubmit = {this.handleSubmit} >
-                    <div className="row">
-                        <div className="input-field col s12">
-                            <input onChange = {this.handleChange} id="usuario" type="text" className="validate" />
-                            <label htmlFor="usuario">Usuario</label>
-                        </div>
-                        <div className="input-field col s12">
-                            <input onChange = {this.handleChange} id="password" type="password" className="validate" />
-                            <label htmlFor="password">Contraseña</label>
-                        </div>
-                        <button className="waves-effect waves-light btn">Entrar</button>
+            <div className="row ver">
+
+                <div className="col s3"></div>
+
+                <div className="card blue-grey lighten-5 container col s6 ">
+                    
+                    <div className="row card-title blue">
+                        <h4 className="center-align white-text">Login</h4>
                     </div>
-                </form>
+
+                    <div className="row center-align">
+                        <form className="col s12" onSubmit={this.handleSubmit}>
+                            <div className="input-field col s12">
+                                <input onChange = {this.handleChange} id="usuario" type="text" className="validate" />
+                                <label htmlFor="usuario" className="black-text">Usuario</label>
+                            </div>
+
+                            <div className="input-field col s12">
+                                <input onChange = {this.handleChange} id="password" type="password" className="validate" />
+                                <label htmlFor="password" className="black-text">Contraseña</label>
+                            </div>
+                            
+                            <button className="waves-effect waves-light btn blue z-depth-4 btn btn-block">Entrar</button>
+
+                        </form>
+                    </div>
+
+                    <div className="row center-align">
+                        <Link to=""><i><u>Ha olvidado la contraseña?</u></i></Link>
+                    </div>
+                </div>
+
+                <div className="col s3"></div>
             </div>
         );
     }
