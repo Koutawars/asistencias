@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import MateriaDocente from './MateriaDocente';
+import MateriaItem from './MateriaItem';
 
 class ListaMaterias extends Component {
     render() {
@@ -7,7 +7,7 @@ class ListaMaterias extends Component {
             <ul className="collection">
                 {this.props.materias.map(materia => {
                     return (
-                        <MateriaDocente key={materia.id} materia={materia} />
+                        <MateriaItem key={materia.id} materia={materia} />
                     );
                 })}
             </ul>

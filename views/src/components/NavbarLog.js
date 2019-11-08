@@ -14,7 +14,7 @@ class NavbarLog extends Component {
     logOut= (e) => {
         e.preventDefault();
         localStorage.clear();
-        this.props.history.push("/login");
+        this.props.history.push("/");
     }
     render() {
         return (

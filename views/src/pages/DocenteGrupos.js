@@ -51,7 +51,7 @@ class DocenteGrupos extends Component {
 
                 <div className="section">
                     <div className="container center-align">
-                        <ListaGrupos grupos={this.state.grupos} />
+                        <ListaGrupos grupos={this.state.grupos} materia={info.nombre}/>
                     </div>
                 </div>
                             

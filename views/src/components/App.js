@@ -9,8 +9,7 @@ import Layout from './Layout';
 import Login from '../pages/Login';
 import Dashboard from './dashboard';
 import AuthenticatedComponent from './AuthenticatedComponent';
-import MateriaDocente from './MateriaDocente';
-
+import DocenteMateriaGrupo from '../pages/DocenteMateriaGrupo';
 
 class App extends Component {
     render(){
@@ -22,7 +21,7 @@ class App extends Component {
               <Route exact path={"/docente"} component = {Docente} ></Route>
               <Route exact path={"/docente/academico"} component = {DocenteAcademico} ></Route>
               <Route exact path={"/docente/academico/grupo"} component = {DocenteGrupos} ></Route>
-              <Route exact path={"/materias"}  component={MateriaDocente} ></Route>
+              <Route exact path={"/docente/academico/grupo/materia"}  component={DocenteMateriaGrupo} ></Route>
               <Route exact path={"/dash"} exact component = {Dashboard} ></Route>
               
               <AuthenticatedComponent>

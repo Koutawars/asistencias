@@ -5,7 +5,7 @@ import { FaArrowAltCircleRight } from 'react-icons/fa';
 
 /* Tome esta pag para el componente de lista de materia*/
 
-class MateriaDocente extends Component {
+class MateriaItem extends Component {
     render() {
         return (
             <React.Fragment>
@@ -22,4 +22,4 @@ class MateriaDocente extends Component {
     }
 }
 
-export default MateriaDocente;
+export default MateriaItem;
