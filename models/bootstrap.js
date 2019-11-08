@@ -47,6 +47,7 @@ module.exports = async () => {
     
     Clase.hasMany(Usuario_clase, {foreignKey: 'claseId'});
     Usuario_clase.belongsTo(Clase, {foreignKey: 'claseId'});
+
     const errHandler = (err) => {
         console.error("Error: ", err);
     };
@@ -91,7 +92,8 @@ module.exports = async () => {
         const horario = await Horario.create({
             dia: 6,
             horaInicial: "07:00:00",
-            horaFinal: "11:00:00"
+            horaFinal: "11:00:00",
+            salon: "Modelado y simulacion"
         });
 
         const grupo = await Grupo.create({

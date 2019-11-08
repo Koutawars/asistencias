@@ -7,6 +7,10 @@ module.exports = sequelize.define("Horario", {
         autoIncrement: true,
         primaryKey: true
     },
+    salon: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
     dia: {
         type: Sequelize.INTEGER(2),
         allowNull: false

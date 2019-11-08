@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var auth = require('./security/auth');
 var login = require('./security/login');
+var estudiante = require('./usuario/estudiante/estudiante');
 
 
 // ruta libre, login
@@ -31,5 +32,7 @@ router.get('/getUser', getUser);
 // rutas del docente
 router.use('/docente', docente);
 
+// rutas del estudiante
+router.use('/estudiante', estudiante);
 
 module.exports = router;
