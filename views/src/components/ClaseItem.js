@@ -50,7 +50,7 @@ class ClaseItem extends Component {
                     </div>
                     <div className="card-action center-align">
                         <Link ><FaPencilAlt className="green-text ">Editar</FaPencilAlt></Link >
-                        <Link ><FaArrowAltCircleDown className="blue-text">Ver</FaArrowAltCircleDown></Link >
+                        <Link to="/docente/academico/grupo/materia/asistencia"><FaArrowAltCircleDown className="blue-text">Ver</FaArrowAltCircleDown></Link >
                         <Link ><MdDelete className="red-text ">Eliminar</MdDelete></Link >   
                     </div>
 
