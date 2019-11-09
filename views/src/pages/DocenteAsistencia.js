@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
 import NavbarLog from '../components/NavbarLog';
 import ListaAsistencia from '../components/ListaAsistencia';
+import { IoIosArrowBack, IoMdDownload } from 'react-icons/io';
+import SweetAlert from 'sweetalert2-react';
 
 class DocenteAsistencia extends Component {
+
+    state = {
+        show: false,
+    }
 
     constructor(props)
     {
@@ -77,21 +83,44 @@ class DocenteAsistencia extends Component {
         }
     }
 
+    handleClick = (e) => {
+        this.props.history.goBack();
+    }
+
     render() {
         return (
             <React.Fragment>
                 <NavbarLog id="999" firstName="Johan" lastName="Robles"></NavbarLog>
 
                 <div className="container">
-                    <h4 className="left-align">
-                        <span>Lista de asistencia - Materia</span>
-                        <span>Clase # #</span>
-                    </h4>
+                    <div className="center-align">
+                        <h4>Lista de asistencia</h4>
+                        <h5>{this.props.location.state.materia}</h5>
+                        <h5>Clase #{this.props.location.state.n_clase}</h5>
+                    </div>
 
                     <div className="divider"></div>
 
                     <div className="section">
-                        <ListaAsistencia estudiantes={this.state.estudiantes}/>
+
+                        <ListaAsistencia estudiantes={this.state.estudiantes} className="center-align"/>
+                        
+                        <div className="row">
+                            <div className="col s6 left-align">
+                                <button onClick={this.handleClick} className="btn btn-primary left-align"><IoIosArrowBack>Back</IoIosArrowBack> Atrás</button>
+                            </div>
+                            
+                            <div className="col s6 right-align">
+                                <button onClick={() => this.setState({ show: true })} className="btn btn-primary left-align"><IoMdDownload>Descargar</IoMdDownload> Descargar</button>
+                                <SweetAlert
+                                    show={this.state.show}
+                                    title="Lista de asistencia"
+                                    type="success"
+                                    text="El documento se descargara en breve..."
+                                    onConfirm={() => this.setState({ show: false })}
+                                />
+                            </div>
+                        </div>
                     </div>
                 </div>
             </React.Fragment>

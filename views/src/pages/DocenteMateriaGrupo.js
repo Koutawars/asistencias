@@ -85,7 +85,7 @@ class DocenteMateriaGrupo extends Component {
                                     </div>
                                 </div>
                                 <div className="row">
-                                    <ListaClases clases={this.state.clases} />
+                                    <ListaClases clases={this.state.clases} materia={this.props.location.state.materia}/>
                                 </div>
                             </div>
                         </div>

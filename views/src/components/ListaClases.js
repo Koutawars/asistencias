@@ -7,7 +7,7 @@ class ListaClases extends Component {
             <div className="row">
                 {this.props.clases.map(clase => {
                     return (
-                        <ClaseItem key={clase.clase} clase={clase} />
+                        <ClaseItem key={clase.clase} clase={clase} materia={this.props.materia}/>
                     );
                 })}
             </div>
