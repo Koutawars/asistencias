@@ -20,6 +20,7 @@ class DocenteMateriaGrupo extends Component {
                     fecha: '13/09/2019',
                     programa: 'Ingenieria de Sistemas',
                     tema: 'Arquitecto vs Diseñador',
+                    observacion: 'Para la proxima clase hay que hacer un video sobre las diferencias...'
                 },
                 {
                     clase: 2,
@@ -29,6 +30,7 @@ class DocenteMateriaGrupo extends Component {
                     fecha: '13/09/2019',
                     programa: 'Ingenieria de Sistemas',
                     tema: 'Arquitecto vs Diseñador',
+                    observacion: 'Para la proxima clase hay que hacer un video sobre las diferencias...'
                 },
                 {
                     clase: 3,
@@ -38,6 +40,7 @@ class DocenteMateriaGrupo extends Component {
                     fecha: '13/09/2019',
                     programa: 'Ingenieria de Sistemas',
                     tema: 'Arquitecto vs Diseñador',
+                    observacion: 'Para la proxima clase hay que hacer un video sobre las diferencias...'
                 },
                 {
                     clase: 4,
@@ -47,6 +50,7 @@ class DocenteMateriaGrupo extends Component {
                     fecha: '13/09/2019',
                     programa: 'Ingenieria de Sistemas',
                     tema: 'Arquitecto vs Diseñador',
+                    observacion: 'Para la proxima clase hay que hacer un video sobre las diferencias...'
                 },
                 {
                     clase: 5,
@@ -56,6 +60,7 @@ class DocenteMateriaGrupo extends Component {
                     fecha: '13/09/2019',
                     programa: 'Ingenieria de Sistemas',
                     tema: 'Arquitecto vs Diseñador',
+                    observacion: 'Para la proxima clase hay que hacer un video sobre las diferencias...'
                 },
             ],
         }
@@ -87,7 +92,7 @@ class DocenteMateriaGrupo extends Component {
                     </div>
 
                     <div class="fixed-action-btn">
-                        <Link class="btn-floating btn-large green" to="/docente">
+                        <Link class="btn-floating btn-large green" to="/docente/academico/grupo/materia/crear_clase">
                             <FaPlus class="center-align">plus</FaPlus>
                         </Link>
                     </div>

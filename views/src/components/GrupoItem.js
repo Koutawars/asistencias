@@ -14,7 +14,7 @@ class GrupoItem extends Component {
                         Salon: {this.props.grupo.salon}
                         <br />
                         Estudiantes: {this.props.grupo.n_estudiantes}
-                    </p>BIEN
+                    </p>
                     <Link to={ { pathname: '/docente/academico/grupo/materia', state: {info: this.props.grupo.grupo, materia: this.props.materia} } } className="secondary-content"><i className="material-icons"><FaArrowAltCircleRight/><br/></i></Link>
                 </li>
             </React.Fragment>
