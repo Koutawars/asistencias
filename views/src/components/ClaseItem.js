@@ -49,9 +49,9 @@ class ClaseItem extends Component {
                         </p>
                     </div>
                     <div className="card-action center-align">
-                        <Link ><FaPencilAlt className="green-text ">Editar</FaPencilAlt></Link >
+                        <Link to={ { pathname: '/docente/academico/grupo/materia/asistencia', state: {n_clase: this.props.clase.clase, materia: this.props.materia} } }><FaPencilAlt className="green-text ">Editar</FaPencilAlt></Link >
                         <Link to={ { pathname: '/docente/academico/grupo/materia/asistencia', state: {n_clase: this.props.clase.clase, materia: this.props.materia} } }><FaArrowAltCircleDown className="blue-text">Ver</FaArrowAltCircleDown></Link >
-                        <Link ><MdDelete className="red-text ">Eliminar</MdDelete></Link >   
+                        <Link to={ { pathname: '/docente/academico/grupo/materia/asistencia', state: {n_clase: this.props.clase.clase, materia: this.props.materia} } }><MdDelete className="red-text ">Eliminar</MdDelete></Link >   
                     </div>
 
                 </div>

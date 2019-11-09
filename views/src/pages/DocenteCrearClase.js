@@ -46,7 +46,7 @@ class DocenteCrearClase extends Component {
                 <NavbarLog id="999" firstName="Johan" lastName="Robles"></NavbarLog>
 
                 <div className="container">
-                    <ClaseForm onChange={this.handleChange} onSubmit={this.handleSubmit} formValues={this.state.form}/>
+                    <ClaseForm onChange={this.handleChange} onSubmit={this.handleSubmit} formValues={this.state.form} materia={this.props.location.state.materia}/>
                 </div>
             </React.Fragment>
         );
