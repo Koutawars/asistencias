@@ -18,13 +18,19 @@ class ClaseItem extends Component {
 
     render() {
 
-        if(this.props.clase.clase % 2 == 0)
+        if(this.props.clase.clase % 2 === 0)
         {
-            this.state.render = Modelado1;   
+            this.setState({
+                ...this.state,
+                render: modelado1
+            })
         }
         else
         {
-            this.state.render = Modelado2;
+            this.setState({
+                ...this.state,
+                render: Modelado2
+            })
         }
 
         return (
