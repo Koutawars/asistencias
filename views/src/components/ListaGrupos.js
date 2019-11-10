@@ -7,7 +7,7 @@ class ListaGrupos extends Component {
             <ul className="collection">
                 {this.props.grupos.map(grupo => {
                     return (
-                        <GrupoItem key={grupo.grupo} grupo={grupo} materia={this.props.materia}/>
+                        <GrupoItem key={grupo.id} grupo = {grupo}/>
                     );
                 })}
             </ul>
