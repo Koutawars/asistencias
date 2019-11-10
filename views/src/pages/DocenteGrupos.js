@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import NavbarLog from '../components/NavbarLog';
 import ListaGrupos from '../components/ListaGrupos';
-//{console.log(this.props.location.state.fromNotifications)}
+import { withRouter } from 'react-router-dom';
+
 
 class DocenteGrupos extends Component {
-
     constructor(props)
     {
         super(props);
-
         this.state = {
             grupos: [
                 {
@@ -37,21 +36,19 @@ class DocenteGrupos extends Component {
     }
 
     render() {
-        const info = this.props.location.state.info;
-
+        const materiaId = this.props.match.params.id;
+        console.log(materiaId);
         return (
             <React.Fragment>
-                <NavbarLog id="999" firstName="Johan" lastName="Robles"></NavbarLog>
+                <NavbarLog tipo = {this.props.data.tipoId} nombre={this.props.data.nombre}></NavbarLog>
                 
                 <h4 className="left-align">
-                    <span>Grupos de {info.nombre}</span>
+                    <span>Grupos de XD</span>
                 </h4>
-
                 <div className="divider"></div>
-
                 <div className="section">
                     <div className="container center-align">
-                        <ListaGrupos grupos={this.state.grupos} materia={info.nombre}/>
+                        <ListaGrupos grupos={this.state.grupos} materia={materiaId}/>
                     </div>
                 </div>
                             
@@ -60,4 +57,4 @@ class DocenteGrupos extends Component {
     }
 }
 
-export default DocenteGrupos;
+export default withRouter(DocenteGrupos);

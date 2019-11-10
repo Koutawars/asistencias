@@ -8,42 +8,23 @@ class Docente extends Component {
     {
         super(props);
         this.state = {
-            nombre: 'Johan',
-            apellido: 'Robles',
-            documento: '1016094022',
-            celular: '3003393659',
-            fecha_n: '13/05/84',
-            email_i: 'johan@unimagdalena.edu.co',
-            ciudad_o: 'Santa Marta',
-            direccion: 'Cienaga calle #4',
-            colegio: 'Instituto la esperanza',
-            anio_decimo: '1994',
-            pension_decimo: '50000 $',
             ruta_imagen: 'https://www.lacucurucha.com.ar/circuito/images/usuario.jpeg',
             materias: [
                 {
                     id: 1,
-                    nombre: 'Arquitectura del Software',
-                    codigo_cni: 4455,
-                    programa: 'Ingenieria de Sistemas',
+                    nombre: 'Arquitectura del Software'
                 },
                 {
                     id: 2,
-                    nombre: 'Programación para la Web',
-                    codigo_cni: 2123,
-                    programa: 'Ingenieria de Sistemas',
+                    nombre: 'Programación para la Web'
                 },
                 {
                     id: 3,
-                    nombre: 'Programacion orientada a objetos',
-                    codigo_cni: 132,
-                    programa: 'Ingenieria de Sistemas',
+                    nombre: 'Programacion orientada a objetos'
                 },
                 {
                     id: 4,
-                    nombre: 'Ingenieria del software',
-                    codigo_cni: 912,
-                    programa: 'Ingenieria de Sistemas',
+                    nombre: 'Ingenieria del software'
                 },
             ],
         };
@@ -53,7 +34,7 @@ class Docente extends Component {
         const info = this.state;
         return (
             <React.Fragment>
-                <NavbarLog id="999" firstName="Johan" lastName="Robles"></NavbarLog>
+                <NavbarLog tipo = {this.props.data.tipoId} nombre={this.props.data.nombre}></NavbarLog>
                 <h4 className="left-align">
                     <span>Asignaturas</span>
                 </h4>

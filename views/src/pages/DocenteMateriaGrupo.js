@@ -69,7 +69,7 @@ class DocenteMateriaGrupo extends Component {
     render() {
         return (
             <React.Fragment>
-                <NavbarLog id="999" firstName="Johan" lastName="Robles"></NavbarLog>
+                <NavbarLog tipo = {this.props.data.tipoId} nombre={this.props.data.nombre}></NavbarLog>
                 <div className="container">
                     <div className="row">
                         <h4 className="left-align">{this.props.location.state.materia} - Clases</h4>

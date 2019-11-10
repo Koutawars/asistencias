@@ -90,7 +90,7 @@ class DocenteAsistencia extends Component {
     render() {
         return (
             <React.Fragment>
-                <NavbarLog id="999" firstName="Johan" lastName="Robles"></NavbarLog>
+                <NavbarLog tipo = {this.props.data.tipoId} nombre={this.props.data.nombre}></NavbarLog>
 
                 <div className="container">
                     <div className="center-align">

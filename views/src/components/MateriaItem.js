@@ -11,11 +11,8 @@ class MateriaItem extends Component {
             <React.Fragment>
                 <li className="collection-item avatar">
                     <img src={IconBook} alt="Icono materia" className="circle" />
-                    <span className="title"><b>{this.props.materia.nombre}</b></span>
-                    <p className="blue-grey-text">Codigo CNI: {this.props.materia.codigo_cni}<br />
-                        Programa: {this.props.materia.programa}
-                    </p>
-                    <Link to={ { pathname: '/docente/academico/grupo',state: {info: this.props.materia} } } className="secondary-content"><i className="material-icons"><FaArrowAltCircleRight/><br/></i></Link>
+                    <span className="title"><b><h5>{this.props.materia.nombre}</h5></b></span>
+                    <Link to={`/docente/academico/` + this.props.materia.id} className="secondary-content"><i className="material-icons"><FaArrowAltCircleRight/><br/></i></Link>
                 </li>
             </React.Fragment>
         );

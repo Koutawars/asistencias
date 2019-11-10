@@ -43,7 +43,7 @@ class DocenteCrearClase extends Component {
     render() {
         return (
             <React.Fragment>
-                <NavbarLog id="999" firstName="Johan" lastName="Robles"></NavbarLog>
+                <NavbarLog tipo = {this.props.data.tipoId} nombre={this.props.data.nombre}></NavbarLog>
 
                 <div className="container">
                     <ClaseForm onChange={this.handleChange} onSubmit={this.handleSubmit} formValues={this.state.form} materia={this.props.location.state.materia}/>
