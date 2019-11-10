@@ -51,7 +51,7 @@ class ClaseForm extends React.Component {
                                 name="tema"
                                 value={this.props.formValues.tema}
                             />
-                            <label htmlfor="icon_prefix">Tema</label>
+                            <label className="icon_prefix">Tema</label>
                         </div>
                     </div>
 
@@ -65,7 +65,7 @@ class ClaseForm extends React.Component {
                                 name="horario"
                                 value={this.props.formValues.horario}
                             />
-                            <label for="icon_prefix">Horario</label>
+                            <label htmlFor="icon_prefix">Horario</label>
                         </div>
                     </div>
 
@@ -79,7 +79,7 @@ class ClaseForm extends React.Component {
                                 name="salon"
                                 value={this.props.formValues.salon}
                             />
-                            <label for="icon_prefix">Salón</label>
+                            <label htmlFor="icon_prefix">Salón</label>
                         </div>
                     </div>
 
@@ -93,7 +93,7 @@ class ClaseForm extends React.Component {
                                 name="observacion"
                                 value={this.props.formValues.observacion}
                             />
-                            <label for="icon_prefix">Observacion</label>
+                            <label htmlFor="icon_prefix">Observacion</label>
                         </div>
                     </div>
 

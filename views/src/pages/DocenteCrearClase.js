@@ -14,11 +14,27 @@ class DocenteCrearClase extends Component {
       } };
 
       handleChange = (e) => {
+
+        var name = null;
+        var value = null;
+
+        if(e.toString() != '[object Object]')
+        {
+          name = 'fecha';
+          value = e;
+          console.log(e);
+        }
+        else
+        {
+          name = e.target.name;
+          value = e.target.value;
+        }
+
         this.setState(
           {
             form: {
               ...this.state.form,
-              [e.target.name]: e.target.value,
+              [name]: value,
             }
           }
         );
