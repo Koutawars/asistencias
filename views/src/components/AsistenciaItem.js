@@ -8,7 +8,7 @@ class AsistenciaItem extends Component {
         const info = this.props.estudiante;
         var layer = <MdCheckCircle className="green-text"></MdCheckCircle>;
 
-        if(info.asistio == 'NO')
+        if(info.asistio === 'NO')
         {
             layer = <IoIosCloseCircle className="red-text"></IoIosCloseCircle>;
         }

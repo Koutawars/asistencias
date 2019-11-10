@@ -3,7 +3,7 @@ import DatePicker from 'react-date-picker';
 import { TiEdit } from 'react-icons/ti';
 import { MdDateRange } from 'react-icons/md';
 import { FaPlaceOfWorship, FaEye } from 'react-icons/fa'
-import { IoIosArrowBack, IoMdDownload } from 'react-icons/io';
+import { IoMdDownload } from 'react-icons/io';
 import SweetAlert from 'sweetalert2-react';
 
 class ClaseForm extends React.Component {

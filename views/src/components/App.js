@@ -2,15 +2,14 @@ import React, {Component} from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 
 /* Componentes o paginas importadas*/
-import Docente from '../pages/Docente';
+import Dashboard from '../pages/Dashboard';
 import DocenteAcademico from '../pages/DocenteAcademico';
 import DocenteGrupos from '../pages/DocenteGrupos';
 import Layout from './Layout';
 import Login from '../pages/Login';
-import Dashboard from './dashboard';
-import AuthenticatedComponent from './AuthenticatedComponent';
 import DocenteMateriaGrupo from '../pages/DocenteMateriaGrupo';
 import DocenteCrearClase from '../pages/DocenteCrearClase';
+import Auth from './AuthenticatedComponent'
 import DocenteAsistencia from '../pages/DocenteAsistencia';
 
 class App extends Component {
@@ -19,17 +18,13 @@ class App extends Component {
         <BrowserRouter>
           <Layout>
             <Switch>
-              <Route exact path={"/"} component = {Login} ></Route>
-              <Route exact path={"/docente"} component = {Docente} ></Route>
-              <Route exact path={"/docente/academico"} component = {DocenteAcademico} ></Route>
-              <Route exact path={"/docente/academico/grupo"} component = {DocenteGrupos} ></Route>
-              <Route exact path={"/docente/academico/grupo/materia"}  component={DocenteMateriaGrupo} ></Route>
-              <Route exact path={"/docente/academico/grupo/materia/asistencia"}  component={DocenteAsistencia} ></Route>
-              <Route exact path={"/docente/academico/grupo/materia/crear_clase"}  component={DocenteCrearClase} ></Route>
-
-              <AuthenticatedComponent>
-              </AuthenticatedComponent>
-              
+              <Route exact path={"/login"} component = {Login} ></Route>
+              <Route exact path={"/"} component = {Auth(Dashboard)} ></Route>
+              <Route exact path={"/docente/academico"} component = {Auth(DocenteAcademico)} ></Route>
+              <Route exact path={"/docente/academico/grupo"} component = {Auth(DocenteGrupos)} ></Route>
+              <Route exact path={"/docente/academico/grupo/materia"}  component={Auth(DocenteMateriaGrupo)} ></Route>
+              <Route exact path={"/docente/academico/grupo/materia/asistencia"}  component={Auth(DocenteAsistencia)} ></Route>
+              <Route exact path={"/docente/academico/grupo/materia/crear_clase"}  component={Auth(DocenteCrearClase)} ></Route>
             </Switch>
           </Layout>
         </BrowserRouter>

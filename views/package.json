@@ -12,12 +12,14 @@
     "materialize-css": "^1.0.0-rc.2",
     "mixin-deep": "^2.0.1",
     "react": "^16.11.0",
+    "react-date-picker": "^7.8.2",
     "react-dom": "^16.11.0",
     "react-icons": "^3.8.0",
     "react-native-svg": "^9.13.3",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0",
-    "set-value": "^3.0.1"
+    "set-value": "^3.0.1",
+    "sweetalert2-react": "^0.8.3"
   },
   "scripts": {
     "start": "react-scripts start",

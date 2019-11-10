@@ -21,7 +21,7 @@ class ClaseItem extends Component {
         {
             this.setState({
                 ...this.state,
-                render: modelado1
+                render: Modelado1
             })
         }
         else
@@ -36,7 +36,7 @@ class ClaseItem extends Component {
             <div className="col s4">
                 <div className="card sticky-action">
                     <div className="card-image waves-effect waves-block waves-light">
-                        <img className="activator" src={this.state.render} />
+                        <img className="activator" alt ="imagen" src={this.state.render} />
                     </div>
 
                     <div className="card-content">
