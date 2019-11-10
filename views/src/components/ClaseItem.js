@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import Modelado1 from '../images/modelado_1.jpeg';
 import Modelado2 from '../images/modelado_2.jpeg';
 import {Link} from 'react-router-dom';
-import { FaPlus, FaMinus, FaEye } from 'react-icons/fa';
+import { FaPlus, FaMinus, FaArrowAltCircleDown, FaPencilAlt } from 'react-icons/fa';
 import { MdDelete } from 'react-icons/md'
-import { TiEdit } from 'react-icons/ti';
 
 class ClaseItem extends Component {
 
@@ -52,12 +51,13 @@ class ClaseItem extends Component {
                             <b>Fecha:</b> <i className="blue-text">{this.props.clase.fecha}</i><br/>
                             <b>Estudiantes:</b> <i className="blue-text">{this.props.clase.n_estudiantes}</i><br/>
                             <b>Programa:</b> <i className="blue-text">{this.props.clase.programa}</i><br/>
+                            <b>Observaciones:</b> <i className="blue-text">{this.props.clase.observacion}</i><br/>
                         </p>
                     </div>
                     <div className="card-action center-align">
-                        <Link ><TiEdit className="green-text ">Editar</TiEdit></Link >
-                        <Link ><FaEye className="blue-text ">Ver</FaEye></Link >
-                        <Link ><MdDelete className="red-text ">Eliminar</MdDelete></Link >   
+                        <Link to={ { pathname: '/docente/academico/grupo/materia/asistencia', state: {n_clase: this.props.clase.clase, materia: this.props.materia} } }><FaPencilAlt className="green-text ">Editar</FaPencilAlt></Link >
+                        <Link to={ { pathname: '/docente/academico/grupo/materia/asistencia', state: {n_clase: this.props.clase.clase, materia: this.props.materia} } }><FaArrowAltCircleDown className="blue-text">Ver</FaArrowAltCircleDown></Link >
+                        <Link to={ { pathname: '/docente/academico/grupo/materia/asistencia', state: {n_clase: this.props.clase.clase, materia: this.props.materia} } }><MdDelete className="red-text ">Eliminar</MdDelete></Link >   
                     </div>
 
                 </div>

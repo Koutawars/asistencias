@@ -10,6 +10,8 @@ import Login from '../pages/Login';
 import Dashboard from './dashboard';
 import AuthenticatedComponent from './AuthenticatedComponent';
 import DocenteMateriaGrupo from '../pages/DocenteMateriaGrupo';
+import DocenteCrearClase from '../pages/DocenteCrearClase';
+import DocenteAsistencia from '../pages/DocenteAsistencia';
 
 class App extends Component {
     render(){
@@ -22,7 +24,9 @@ class App extends Component {
               <Route exact path={"/docente/academico"} component = {DocenteAcademico} ></Route>
               <Route exact path={"/docente/academico/grupo"} component = {DocenteGrupos} ></Route>
               <Route exact path={"/docente/academico/grupo/materia"}  component={DocenteMateriaGrupo} ></Route>
-              
+              <Route exact path={"/docente/academico/grupo/materia/asistencia"}  component={DocenteAsistencia} ></Route>
+              <Route exact path={"/docente/academico/grupo/materia/crear_clase"}  component={DocenteCrearClase} ></Route>
+
               <AuthenticatedComponent>
               </AuthenticatedComponent>
               
