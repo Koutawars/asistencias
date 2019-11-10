@@ -12,7 +12,7 @@ class MateriaItem extends Component {
                 <li className="collection-item avatar">
                     <img src={IconBook} alt="Icono materia" className="circle" />
                     <span className="title"><b><h5>{this.props.materia.nombre}</h5></b></span>
-                    <Link to={`/docente/academico/` + this.props.materia.id} className="secondary-content"><i className="material-icons"><FaArrowAltCircleRight/><br/></i></Link>
+                    <Link to={ { pathname: `/docente/academico/` + this.props.materia.id, state: {materia: this.props.materia} } } className="secondary-content"><i className="material-icons"><FaArrowAltCircleRight/><br/></i></Link>
                 </li>
             </React.Fragment>
         );

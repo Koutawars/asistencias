@@ -28,9 +28,10 @@ class DocenteGrupos extends Component {
         } )
         .then(res => {
             this.setState({
-                grupos: res.data.grupo
+                grupos: res.data.grupo,
+                nombre: res.data.nombre,
             })
-            console.log(res.data);
+            console.log("DATA: ", this.props.location);
         }).catch(err => {
             console.log(err);
         });
@@ -42,7 +43,7 @@ class DocenteGrupos extends Component {
                 <NavbarLog tipo = {this.props.data.tipoId} nombre={this.props.data.nombre}></NavbarLog>
                 
                 <h4 className="left-align">
-                    <span>Grupos de XD</span>
+                    <span>Grupos de {this.props.location.state.materia.nombre}</span>
                 </h4>
                 <div className="divider"></div>
                 <div className="section">
