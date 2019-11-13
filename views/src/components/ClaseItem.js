@@ -41,17 +41,15 @@ class ClaseItem extends Component {
                     </div>
 
                     <div className="card-content">
-                        <span className="card-title activator grey-text text-darken-4"><b>Clase #{this.props.clase.clase}</b><FaPlus className="right green-text">more_vert</FaPlus></span>
+                        <span className="card-title activator grey-text text-darken-4"><b>Clase #{this.props.clase.id}</b><FaPlus className="right green-text">more_vert</FaPlus></span>
                         <p>Tema: <i className="blue-text">{this.props.clase.tema}</i></p>
                     </div>
                     <div className="card-reveal">
-                        <span className="card-title grey-text text-darken-4"><b>Clase #{this.props.clase.clase}</b><FaMinus className="right red-text">close</FaMinus></span>
+                        <span className="card-title grey-text text-darken-4"><b>Clase #{this.props.clase.id}</b><FaMinus className="right red-text">close</FaMinus></span>
                         <p>
                             <b>Salón:</b> <i className="blue-text">{this.props.clase.salon}</i><br/>
                             <b>Horario:</b> <i className="blue-text">{this.props.clase.horario}</i><br/>
                             <b>Fecha:</b> <i className="blue-text">{this.props.clase.fecha}</i><br/>
-                            <b>Estudiantes:</b> <i className="blue-text">{this.props.clase.n_estudiantes}</i><br/>
-                            <b>Programa:</b> <i className="blue-text">{this.props.clase.programa}</i><br/>
                             <b>Observaciones:</b> <i className="blue-text">{this.props.clase.observacion}</i><br/>
                         </p>
                     </div>
