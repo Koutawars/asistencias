@@ -110,8 +110,8 @@ class ClaseForm extends React.Component {
                                 className="form-control"
                                 onChange={this.props.onChange} 
                                 type="text" 
-                                name="observacion"
-                                value={this.props.formValues.observacion}
+                                name="observaciones"
+                                value={this.props.formValues.observaciones}
                             />
                             <label htmlFor="icon_prefix">Observacion</label>
                         </div>

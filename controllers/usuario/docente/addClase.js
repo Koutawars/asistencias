@@ -9,6 +9,7 @@ var addClases = async (req, res) => {
     var tema = req.body.tema;
     var fecha = req.body.fecha;
     var observaciones = req.body.observaciones;
+    var horarioId = req.body.horarioId;
     const Op = Sequelize.Op;
     /*
         EJEMPLO JSON por POST
@@ -34,7 +35,8 @@ var addClases = async (req, res) => {
             grupoId,
             tema,
             fecha,
-            observaciones
+            observaciones,
+            horarioId
         }).catch(err => {
             console.error(err);
         })

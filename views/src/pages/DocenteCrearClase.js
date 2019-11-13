@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import NavbarLog from '../components/NavbarLog';
 import ClaseForm from '../components/ClaseForm';
+import { getJwt } from '../helpers/jwt';
+import { withRouter } from 'react-router-dom';
+import axios from 'axios';
 
 //import '../js/datepicker.js';
 
@@ -9,7 +12,7 @@ class DocenteCrearClase extends Component {
     state = {
       fecha: '',
       tema: '',
-      observacion: '',
+      observaciones: '',
       horarioId: null
     };
 
@@ -27,7 +30,6 @@ class DocenteCrearClase extends Component {
     }
     
     componentDidMount(){
-      
       document.addEventListener( "click", this.fechaListener );
     }
 
@@ -47,7 +49,21 @@ class DocenteCrearClase extends Component {
       handleSubmit = (e) => 
       {
         e.preventDefault();
-        console.log(this.state);
+        const jwt = getJwt();
+        const grupoId = this.props.match.params.id;
+        let url = "http://localhost:5000/api/docente/" + grupoId + "/addclase";
+        axios.post(url, this.state,
+        {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${jwt}`
+            }
+        } )
+        .then(res => {
+            console.log("DATA: ", res.data);
+        }).catch(err => {
+            console.log(err);
+        });
       }
 
     render() {
@@ -62,4 +78,4 @@ class DocenteCrearClase extends Component {
     }
 }
 
-export default DocenteCrearClase;
+export default withRouter(DocenteCrearClase);
