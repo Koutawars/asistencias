@@ -7,6 +7,7 @@ var addClase = require('./addClase');
 var getEstudiantes = require('./getEstudiantes');
 var addEstudianteClase = require('./addEstudianteClase');
 var deleteClase = require('./deleteClase');
+var getHorarios = require('./getHorario');
 
 // traer materias
 // http://localhost:5000/api/docente/getMaterias
@@ -18,6 +19,9 @@ router.get('/:id/getGrupos', getGrupo);
 // donde es el id del grupo
 // http://localhost:5000/api/docente/:id/getClases
 router.get('/:id/getClases', getClases);
+
+// get horarios de un grupo
+router.get('/:id/getHorarios', getHorarios);
 
 // agregar una clase
 // id = grupo

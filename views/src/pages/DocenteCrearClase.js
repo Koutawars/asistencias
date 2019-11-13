@@ -5,13 +5,16 @@ import ClaseForm from '../components/ClaseForm';
 
 class DocenteCrearClase extends Component {
 
-    state = {form: {
+    state = {
+      form: {
         fecha: new Date(),
         tema: '',
         observacion: '',
         horario: '',
         salon: '',
-      } };
+        horarioId: null
+      }
+    };
 
       handleChange = (e) => {
 
@@ -45,24 +48,15 @@ class DocenteCrearClase extends Component {
       handleSubmit = (e) => 
       {
         e.preventDefault();
-        //this.setState({loading: true, error:null})
-        //this.setState({loading:false})
-        
-        //this.props.history.push('/badges');
-        try {
-          //await api.badges.create(this.state.form)
-        } catch (error) {
-          //this.setState({loading: false, error:error})
-        }
+        console.log(this.state);
       }
 
     render() {
         return (
             <React.Fragment>
                 <NavbarLog tipo = {this.props.data.tipoId} nombre={this.props.data.nombre}></NavbarLog>
-
                 <div className="container">
-                    <ClaseForm onChange={this.handleChange} onSubmit={this.handleSubmit} formValues={this.state.form} materia={this.props.location.state.materia}/>
+                    <ClaseForm onChange={this.handleChange} onSubmit={this.handleSubmit} formValues={this.state.form}/>
                 </div>
             </React.Fragment>
         );

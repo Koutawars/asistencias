@@ -6,6 +6,8 @@ import { FaPlaceOfWorship, FaEye } from 'react-icons/fa'
 import { IoMdDownload } from 'react-icons/io';
 import SweetAlert from 'sweetalert2-react';
 
+import M from 'materialize-css'
+
 class ClaseForm extends React.Component {
     
     state = {
@@ -17,6 +19,13 @@ class ClaseForm extends React.Component {
     };
 
     render() {
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('select');
+            var eleme = document.querySelectorAll('.datepicker');
+            M.Datepicker.init(eleme, {});
+
+            M.FormSelect.init(elems, {});
+        });
         return (
         <div className="container">
 
@@ -31,56 +40,30 @@ class ClaseForm extends React.Component {
                 <form onSubmit={this.props.onSubmit}>
                     <div className="form-group">
                         <div className="input-field">
-                            <DatePicker
-                                className="form-control"
-                                type="text"
-                                onChange={this.props.onChange}
-                                value={this.props.formValues.fecha}
-                                name="fecha"
-                            />
-                        </div>
-                    </div>
-                    
-                    <div className="form-group">
-                        <div className="input-field">
                             <TiEdit className="prefix">Tematica</TiEdit>
                             <input 
                                 className="form-control"
                                 onChange={this.props.onChange} 
                                 type="text" 
                                 name="tema"
-                                value={this.props.formValues.tema}
                             />
                             <label className="icon_prefix">Tema</label>
                         </div>
                     </div>
-
-                    <div className="form-group">
-                        <div className="input-field">
-                            <MdDateRange className="prefix">Horario</MdDateRange>
-                            <input 
-                                className="form-control"
-                                onChange={this.props.onChange} 
-                                type="text" 
-                                name="horario"
-                                value={this.props.formValues.horario}
-                            />
-                            <label htmlFor="icon_prefix">Horario</label>
-                        </div>
+                    <div className="input-field">
+                        <input onChange={this.props.onChange} id="fecha" type="text" class="datepicker">
+                        </input>
+                        <label for="fecha">Fecha de la clase</label>
                     </div>
-
-                    <div className="form-group">
-                        <div className="input-field">
-                            <FaPlaceOfWorship className="prefix">salon</FaPlaceOfWorship>
-                            <input 
-                                className="form-control"
-                                onChange={this.props.onChange} 
-                                type="text" 
-                                name="salon"
-                                value={this.props.formValues.salon}
-                            />
-                            <label htmlFor="icon_prefix">Salón</label>
-                        </div>
+                    <div class="input-field col s12">
+                        <MdDateRange className="prefix">Horario</MdDateRange>
+                        <select onChange={this.props.onChange} >
+                        <option value="" disabled selected>Escoja horario y clase</option>
+                        <option value="1">Option 1</option>
+                        <option value="2">Option 2</option>
+                        <option value="3">Option 3</option>
+                        </select>
+                        <label>Horario</label>
                     </div>
 
                     <div className="form-group">

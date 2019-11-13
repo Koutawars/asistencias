@@ -1,0 +1,6 @@
+input[type="text"] + label {
+    pointer-events: none;
+}
+* {
+    pointer-events: all;
+}

@@ -4,6 +4,7 @@ import App from './components/App';
 import * as serviceWorker from './serviceWorker';
 import 'materialize-css'; 
 import 'materialize-css/dist/css/materialize.min.css';
+import './css/general.css';
 
 const container = document.getElementById('root');
 
