@@ -15,8 +15,7 @@ class ClaseItem extends Component {
         };
     }
 
-    render() {
-
+    componentWillMount(){
         if(this.props.clase.clase % 2 === 0)
         {
             this.setState({
@@ -31,7 +30,9 @@ class ClaseItem extends Component {
                 render: Modelado2
             })
         }
+    }
 
+    render() {
         return (
             <div className="col s4">
                 <div className="card sticky-action">
@@ -55,9 +56,9 @@ class ClaseItem extends Component {
                         </p>
                     </div>
                     <div className="card-action center-align">
-                        <Link to={ { pathname: '/docente/academico/grupo/materia/asistencia', state: {n_clase: this.props.clase.clase, materia: this.props.materia} } }><FaPencilAlt className="green-text ">Editar</FaPencilAlt></Link >
-                        <Link to={ { pathname: '/docente/academico/grupo/materia/asistencia', state: {n_clase: this.props.clase.clase, materia: this.props.materia} } }><FaArrowAltCircleDown className="blue-text">Ver</FaArrowAltCircleDown></Link >
-                        <Link to={ { pathname: '/docente/academico/grupo/materia/asistencia', state: {n_clase: this.props.clase.clase, materia: this.props.materia} } }><MdDelete className="red-text ">Eliminar</MdDelete></Link >   
+                        <Link to={ { pathname: '/docente/academico/grupo/materia/asistencia'} }><FaPencilAlt className="green-text ">Editar</FaPencilAlt></Link >
+                        <Link to={ { pathname: '/docente/academico/grupo/materia/asistencia'} }><FaArrowAltCircleDown className="blue-text">Ver</FaArrowAltCircleDown></Link >
+                        <Link to={ { pathname: '/docente/academico/grupo/materia/asistencia'} }><MdDelete className="red-text ">Eliminar</MdDelete></Link >   
                     </div>
 
                 </div>

@@ -72,7 +72,7 @@ class DocenteMateriaGrupo extends Component {
                 <NavbarLog tipo = {this.props.data.tipoId} nombre={this.props.data.nombre}></NavbarLog>
                 <div className="container">
                     <div className="row">
-                        <h4 className="left-align">{this.props.location.state.materia} - Clases</h4>
+                        <h4 className="left-align">Clases</h4>
                     </div>
                     <div className="row">
                         <div className="row">
@@ -85,14 +85,14 @@ class DocenteMateriaGrupo extends Component {
                                     </div>
                                 </div>
                                 <div className="row">
-                                    <ListaClases clases={this.state.clases} materia={this.props.location.state.materia}/>
+                                    <ListaClases clases={this.state.clases} />
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <div className="fixed-action-btn">
-                        <Link className="btn-floating btn-large green" to={ { pathname: '/docente/academico/grupo/materia/crear_clase',state: {materia: this.props.location.state.materia} } }>
+                        <Link className="btn-floating btn-large green" to={ { pathname: '/docente/academico/grupo/materia/crear_clase' } }>
                             <FaPlus className="center-align">plus</FaPlus>
                         </Link>
                     </div>
