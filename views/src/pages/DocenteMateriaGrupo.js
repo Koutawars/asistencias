@@ -103,7 +103,7 @@ class DocenteMateriaGrupo extends Component {
                     </div>
 
                     <div className="fixed-action-btn">
-                        <Link className="btn-floating btn-large green" to={ { pathname: '/docente/academico/grupo/materia/crear_clase' } }>
+                        <Link className="btn-floating btn-large green" to={ { pathname: '/docente/academico/grupo/' + this.props.match.params.id + '/crearClase' } }>
                             <FaPlus className="center-align">plus</FaPlus>
                         </Link>
                     </div>

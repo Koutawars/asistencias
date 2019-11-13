@@ -23,8 +23,8 @@ class App extends Component {
               <Route exact path={"/docente/academico"} component = {Auth(DocenteAcademico)} ></Route>
               <Route exact path={"/docente/academico/:id"} component = {Auth(DocenteGrupos)} ></Route>
               <Route exact path={"/docente/academico/grupo/:id"}  component={Auth(DocenteMateriaGrupo)} ></Route>
-              <Route exact path={"/docente/academico/grupo/materia/asistencia"}  component={Auth(DocenteAsistencia)} ></Route>
-              <Route exact path={"/docente/academico/grupo/materia/crear_clase"}  component={Auth(DocenteCrearClase)} ></Route>
+              <Route exact path={"/docente/academico/grupo/:id/asistencia"}  component={Auth(DocenteAsistencia)} ></Route>
+              <Route exact path={"/docente/academico/grupo/:id/crearClase"}  component={Auth(DocenteCrearClase)} ></Route>
             </Switch>
           </Layout>
         </BrowserRouter>

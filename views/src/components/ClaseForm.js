@@ -1,34 +1,73 @@
 import React from 'react';
-import DatePicker from 'react-date-picker';
 import { TiEdit } from 'react-icons/ti';
 import { MdDateRange } from 'react-icons/md';
-import { FaPlaceOfWorship, FaEye } from 'react-icons/fa'
+import { FaEye } from 'react-icons/fa'
 import { IoMdDownload } from 'react-icons/io';
 import SweetAlert from 'sweetalert2-react';
+import { withRouter } from 'react-router-dom';
+
+
+import { getJwt } from '../helpers/jwt';
+import axios from 'axios';
 
 import M from 'materialize-css'
 
 class ClaseForm extends React.Component {
-    
-    state = {
-        show: false,
+    actualizado = true;
+    constructor(props){
+        super(props);
+        this.state = {
+            show:false,
+            horarios:[]
+        }
+    }
+    componentDidMount(){
+        const jwt = getJwt();
+        const grupoId = this.props.match.params.id;
+        let url = "http://localhost:5000/api/docente/" + grupoId + "/getHorarios";
+        axios.get(url,
+        {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${jwt}`
+            }
+        } )
+        .then(res => {
+            this.setState({
+                ...this.state,
+                horarios: res.data.horarios
+            })
+            console.log(this.state);
+        }).catch(err => {
+            console.log(err);
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var eleme = document.querySelectorAll('.datepicker');
+            M.Datepicker.init(eleme, {});
+            var elems = document.querySelectorAll('select');
+            M.FormSelect.init(elems, {});
+        });
     }
 
     handleClick = (e) => {
         console.log("Button was clicked");
     };
 
-    render() {
-        document.addEventListener('DOMContentLoaded', function() {
+    actualizar = e => {
+        if(this.state.horarios.length > 0 && this.actualizado){
             var elems = document.querySelectorAll('select');
-            var eleme = document.querySelectorAll('.datepicker');
-            M.Datepicker.init(eleme, {});
-
             M.FormSelect.init(elems, {});
-        });
+            this.actualizado = false;
+        }
+    }
+
+    render() {
+        var opciones = this.state.horarios.map((horario) => {
+            return <option key = {horario.id} value={horario.id}>{horario.salon} - {horario.horaInicial} a {horario.horaFinal}</option>
+        })
         return (
         <div className="container">
-
             <div className="center-align">
                 <h4>Nueva clase</h4>
                 <h5>Materia: {this.props.materia}</h5>
@@ -51,17 +90,15 @@ class ClaseForm extends React.Component {
                         </div>
                     </div>
                     <div className="input-field">
-                        <input onChange={this.props.onChange} id="fecha" type="text" class="datepicker">
+                        <input name= "fecha" id="fecha" type="text" className="datepicker">
                         </input>
-                        <label for="fecha">Fecha de la clase</label>
+                        <label htmlFor="fecha">Fecha de la clase</label>
                     </div>
-                    <div class="input-field col s12">
+                    <div className="input-field col s12" onClick = {this.actualizar}>
                         <MdDateRange className="prefix">Horario</MdDateRange>
-                        <select onChange={this.props.onChange} >
-                        <option value="" disabled selected>Escoja horario y clase</option>
-                        <option value="1">Option 1</option>
-                        <option value="2">Option 2</option>
-                        <option value="3">Option 3</option>
+                        <select id="horario" name="horarioId" defaultValue={'DEFAULT'} onChange={this.props.onChange} >
+                        <option value="DEFAULT" disabled>Escoja horario y clase</option>
+                        {opciones}
                         </select>
                         <label>Horario</label>
                     </div>
@@ -81,13 +118,13 @@ class ClaseForm extends React.Component {
                     </div>
 
                     <div className="col s6 left-align">
-                        <button onClick={() => this.setState({ show: true })} className="btn btn-primary left-align"><IoMdDownload>Guardar</IoMdDownload> Guardar</button>
+                        <button onClick={() => this.setState({ ...this.state, show: true })} className="btn btn-primary left-align"><IoMdDownload>Guardar</IoMdDownload> Guardar</button>
                         <SweetAlert
                             show={this.state.show}
                             title="Guardando"
                             type="success"
                             text="La clase de esta creando, espere por favor..."
-                            onConfirm={() => this.setState({ show: false })}
+                            onConfirm={() => this.setState({ ...this.state, show: false })}
                         />
                     </div>
                     
@@ -98,4 +135,4 @@ class ClaseForm extends React.Component {
     }
 }
 
-export default ClaseForm;
+export default withRouter(ClaseForm);
