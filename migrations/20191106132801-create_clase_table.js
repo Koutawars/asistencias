@@ -23,6 +23,10 @@ module.exports = {
       },
       observaciones: {
           type: Sequelize.TEXT
+      },
+      horarioId: {
+        type: Sequelize.INTEGER(11),
+        allowNull: false
       }
     });
   },

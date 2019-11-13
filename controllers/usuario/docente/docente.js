@@ -15,7 +15,9 @@ router.get('/getMaterias', getMateria);
 // http://localhost:5000/api/docente/:id/getGrupos
 router.get('/:id/getGrupos', getGrupo);
 
-router.get('/:id/:grupoId/clases', getClases);
+// donde es el id del grupo
+// http://localhost:5000/api/docente/:id/getClases
+router.get('/:id/getClases', getClases);
 
 // agregar una clase
 // id = grupo

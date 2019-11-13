@@ -48,6 +48,10 @@ module.exports = async () => {
     Clase.hasMany(Usuario_clase, {foreignKey: 'claseId'});
     Usuario_clase.belongsTo(Clase, {foreignKey: 'claseId'});
 
+    Horario.hasMany(Clase, {foreignKey: 'horarioId'});
+    Clase.belongsTo(Horario, {foreignKey: 'horarioId'});
+
+
     const errHandler = (err) => {
         console.error("Error: ", err);
     };
@@ -112,7 +116,8 @@ module.exports = async () => {
             grupoId: grupo.id,
             tema: "Como hacer documentación.",
             fecha: "2019-08-11",
-            observaciones: ""
+            observaciones: "",
+            horarioId: horario.id
         }).catch(errHandler);
     }
 };

@@ -21,6 +21,10 @@ module.exports = sequelize.define("Clase", {
     },
     observaciones: {
         type: Sequelize.TEXT
+    },
+    horarioId: {
+      type: Sequelize.INTEGER(11),
+      allowNull: false
     }
 }, {
     tableName: 'clases'

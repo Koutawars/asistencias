@@ -2,70 +2,50 @@ import React, { Component } from 'react';
 import { FaSearch, FaPlus } from 'react-icons/fa';
 import ListaClases from '../components/ListaClases';
 import NavbarLog from '../components/NavbarLog';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
+import { getJwt } from '../helpers/jwt';
+import axios from 'axios';
 
 class DocenteMateriaGrupo extends Component {
 
     constructor(props)
     {
         super(props);
-
         this.state = {
             clases: [
                 {
-                    clase: 1,
+                    id: 1,
                     horario: 'Viernes 8-12',
-                    n_estudiantes: 20,
                     salon: 'Modelado',
                     fecha: '13/09/2019',
-                    programa: 'Ingenieria de Sistemas',
                     tema: 'Arquitecto vs Diseñador',
                     observacion: 'Para la proxima clase hay que hacer un video sobre las diferencias...'
-                },
-                {
-                    clase: 2,
-                    horario: 'Sabados 7-11',
-                    n_estudiantes: 30,
-                    salon: 'Lab. Redes',
-                    fecha: '13/09/2019',
-                    programa: 'Ingenieria de Sistemas',
-                    tema: 'Arquitecto vs Diseñador',
-                    observacion: 'Para la proxima clase hay que hacer un video sobre las diferencias...'
-                },
-                {
-                    clase: 3,
-                    horario: 'Lunes 8-12',
-                    n_estudiantes: 27,
-                    salon: 'Sistemas Operativos',
-                    fecha: '13/09/2019',
-                    programa: 'Ingenieria de Sistemas',
-                    tema: 'Arquitecto vs Diseñador',
-                    observacion: 'Para la proxima clase hay que hacer un video sobre las diferencias...'
-                },
-                {
-                    clase: 4,
-                    horario: 'Lunes 8-12',
-                    n_estudiantes: 27,
-                    salon: 'Sistemas Operativos',
-                    fecha: '13/09/2019',
-                    programa: 'Ingenieria de Sistemas',
-                    tema: 'Arquitecto vs Diseñador',
-                    observacion: 'Para la proxima clase hay que hacer un video sobre las diferencias...'
-                },
-                {
-                    clase: 5,
-                    horario: 'Lunes 8-12',
-                    n_estudiantes: 27,
-                    salon: 'Sistemas Operativos',
-                    fecha: '13/09/2019',
-                    programa: 'Ingenieria de Sistemas',
-                    tema: 'Arquitecto vs Diseñador',
-                    observacion: 'Para la proxima clase hay que hacer un video sobre las diferencias...'
-                },
-            ],
+                }
+            ]
         }
     }
+    componentDidMount(){
+        const jwt = getJwt();
+        const grupoId = this.props.match.params.id;
+        let url = "http://localhost:5000/api/docente/" + grupoId + "/getClases";
+        axios.get(url,
+        {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${jwt}`
+            }
+        } )
+        .then(res => {
+            var clases = [];
+            res.data.clase.forEach(clase => {
+                
 
+            });
+            console.log(res);
+        }).catch(err => {
+            console.log(err);
+        });
+    }
     render() {
         return (
             <React.Fragment>
@@ -103,4 +83,4 @@ class DocenteMateriaGrupo extends Component {
     }
 }
 
-export default DocenteMateriaGrupo;
+export default withRouter(DocenteMateriaGrupo);
