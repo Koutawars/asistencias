@@ -12,17 +12,36 @@ class DocenteMateriaGrupo extends Component {
     {
         super(props);
         this.state = {
-            clases: [
-                {
-                    id: 1,
-                    horario: 'Viernes 8-12',
-                    salon: 'Modelado',
-                    fecha: '13/09/2019',
-                    tema: 'Arquitecto vs Diseñador',
-                    observacion: 'Para la proxima clase hay que hacer un video sobre las diferencias...'
-                }
-            ]
+            clases: []
         }
+    }
+    getDia(dia){
+        var retorna;
+        switch(dia){
+            case 1:
+                retorna = "Lunes";
+                break;
+            case 2:
+                retorna = "Martes";
+                break;
+            case 3:
+                retorna = "Miercoles";
+                break;
+            case 4:
+                retorna = "Jueves";
+                break;
+            case 5:
+                retorna = "Viernes";
+                break;
+            case 6:
+                retorna = "Sabado";
+                break;
+            case 7:
+                retorna = "Domingo";
+                break;
+        }
+        return retorna;
+
     }
     componentDidMount(){
         const jwt = getJwt();
@@ -38,10 +57,22 @@ class DocenteMateriaGrupo extends Component {
         .then(res => {
             var clases = [];
             res.data.clase.forEach(clase => {
-                
-
+                let horaInicial, horaFinal;
+                horaInicial = clase.Horario.horaInicial.split(":")[0];
+                horaFinal = clase.Horario.horaFinal.split(":")[0];
+                clases.push({
+                    id: clase.id,
+                    horario: this.getDia(clase.Horario.dia) + " " +  horaInicial + "-" + horaFinal,
+                    tema: clase.tema,
+                    observacion: clase.observaciones,
+                    fecha: clase.fecha,
+                    salon: clase.Horario.salon
+                })
             });
-            console.log(res);
+            this.setState({
+                clases
+            })
+            console.log(clases);
         }).catch(err => {
             console.log(err);
         });
