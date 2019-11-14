@@ -40,19 +40,15 @@ class ClaseForm extends React.Component {
         }).catch(err => {
             console.log(err);
         });
-
-        document.addEventListener('DOMContentLoaded', function() {
-            var eleme = document.querySelectorAll('.datepicker');
-            M.Datepicker.init(eleme, {});
-        });
     }
 
     
     componentDidUpdate(prev_props, prev_state){
         if(this.state.horarios.length != prev_state.horarios.length){
-            this.actualizar();
             var elems = document.querySelectorAll('select');
             M.FormSelect.init(elems, {});
+            var eleme = document.querySelectorAll('.datepicker');
+            M.Datepicker.init(eleme, {});
         }
     }
     render() {
