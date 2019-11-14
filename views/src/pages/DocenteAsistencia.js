@@ -3,6 +3,7 @@ import NavbarLog from '../components/NavbarLog';
 import ListaAsistencia from '../components/ListaAsistencia';
 import { IoIosArrowBack, IoMdDownload } from 'react-icons/io';
 import SweetAlert from 'sweetalert2-react';
+import { withRouter } from 'react-router-dom';
 
 class DocenteAsistencia extends Component {
 
@@ -95,8 +96,6 @@ class DocenteAsistencia extends Component {
                 <div className="container">
                     <div className="center-align">
                         <h4>Lista de asistencia</h4>
-                        <h5>{this.props.location.state.materia}</h5>
-                        <h5>Clase #{this.props.location.state.n_clase}</h5>
                     </div>
 
                     <div className="divider"></div>
@@ -128,4 +127,4 @@ class DocenteAsistencia extends Component {
     }
 }
 
-export default DocenteAsistencia;
+export default withRouter(DocenteAsistencia);

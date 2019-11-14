@@ -57,6 +57,7 @@ class ClaseForm extends React.Component {
         })
         return (
         <div className="container">
+            <button style={{marginTop : "30px"}} onClick={(e) => {this.props.history.goBack()}} className="btn right">Atras</button>
             <div className="center-align">
                 <h4>Nueva clase</h4>
                 <h5>Materia: {this.props.materia}</h5>

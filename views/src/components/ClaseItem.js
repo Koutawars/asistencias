@@ -6,6 +6,8 @@ import { FaPlus, FaMinus, FaArrowAltCircleDown, FaPencilAlt } from 'react-icons/
 import { MdDelete } from 'react-icons/md'
 import { getJwt } from '../helpers/jwt';
 import axios from 'axios';
+import { withRouter } from 'react-router-dom';
+
 
 class ClaseItem extends Component {
 
@@ -72,7 +74,7 @@ class ClaseItem extends Component {
                     </div>
                     <div className="card-action center-align">
                         <Link to={ { pathname: '/docente/academico/grupo/materia/asistencia'} }><FaPencilAlt className="green-text ">Editar</FaPencilAlt></Link >
-                        <Link to={ { pathname: '/docente/academico/grupo/materia/asistencia'} }><FaArrowAltCircleDown className="blue-text">Ver</FaArrowAltCircleDown></Link >
+                        <Link to={ { pathname: '/docente/academico/grupo/' + this.props.match.params.id  + '/asistencia'} }><FaArrowAltCircleDown className="blue-text">Ver</FaArrowAltCircleDown></Link >
                         <Link  onClick = {this.deleteHadle}><MdDelete className="red-text ">Eliminar</MdDelete></Link >   
                     </div>
 
@@ -82,4 +84,4 @@ class ClaseItem extends Component {
     }
 }
 
-export default ClaseItem;
+export default withRouter(ClaseItem);

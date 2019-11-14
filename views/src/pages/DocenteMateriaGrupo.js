@@ -96,7 +96,8 @@ class DocenteMateriaGrupo extends Component {
                 <NavbarLog tipo = {this.props.data.tipoId} nombre={this.props.data.nombre}></NavbarLog>
                 <div className="container">
                     <div className="row">
-                        <h4 className="left-align">Clases</h4>
+                        <h4 className="left-align left" >Clases</h4>
+                        <button style={{marginTop : "30px"}} onClick={(e) => {this.props.history.goBack()}} className="btn right">Atras</button>
                     </div>
                     <div className="row">
                         <div className="row">
