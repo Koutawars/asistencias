@@ -32,7 +32,6 @@ class DocenteCrearClase extends Component {
     componentDidMount(){
       document.addEventListener( "click", this.fechaListener );
     }
-
       handleChange = (e) => {
         var name = null;
         var value = null;

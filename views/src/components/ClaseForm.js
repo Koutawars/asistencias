@@ -13,7 +13,6 @@ import axios from 'axios';
 import M from 'materialize-css'
 
 class ClaseForm extends React.Component {
-    actualizado = true;
     constructor(props){
         super(props);
         this.state = {
@@ -45,23 +44,17 @@ class ClaseForm extends React.Component {
         document.addEventListener('DOMContentLoaded', function() {
             var eleme = document.querySelectorAll('.datepicker');
             M.Datepicker.init(eleme, {});
-            var elems = document.querySelectorAll('select');
-            M.FormSelect.init(elems, {});
         });
     }
 
-    handleClick = (e) => {
-        console.log("Button was clicked");
-    };
-
-    actualizar = e => {
-        if(this.state.horarios.length > 0 && this.actualizado){
+    
+    componentDidUpdate(prev_props, prev_state){
+        if(this.state.horarios.length != prev_state.horarios.length){
+            this.actualizar();
             var elems = document.querySelectorAll('select');
             M.FormSelect.init(elems, {});
-            this.actualizado = false;
         }
     }
-
     render() {
         var opciones = this.state.horarios.map((horario) => {
             return <option key = {horario.id} value={horario.id}>{horario.salon} - {horario.horaInicial} a {horario.horaFinal}</option>
@@ -94,7 +87,7 @@ class ClaseForm extends React.Component {
                         </input>
                         <label htmlFor="fecha">Fecha de la clase</label>
                     </div>
-                    <div className="input-field col s12" onClick = {this.actualizar}>
+                    <div className="input-field col s12">
                         <MdDateRange className="prefix">Horario</MdDateRange>
                         <select id="horario" name="horarioId" defaultValue={'DEFAULT'} onChange={this.props.onChange} >
                         <option value="DEFAULT" disabled>Escoja horario y clase</option>

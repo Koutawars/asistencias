@@ -4,6 +4,8 @@ import Modelado2 from '../images/modelado_2.jpeg';
 import {Link} from 'react-router-dom';
 import { FaPlus, FaMinus, FaArrowAltCircleDown, FaPencilAlt } from 'react-icons/fa';
 import { MdDelete } from 'react-icons/md'
+import { getJwt } from '../helpers/jwt';
+import axios from 'axios';
 
 class ClaseItem extends Component {
 
@@ -15,8 +17,23 @@ class ClaseItem extends Component {
         };
     }
 
+    deleteHadle = (e) => {        
+        const jwt = getJwt();
+        const claseId = this.props.clase.id;
+        axios.delete(' http://localhost:5000/api/docente/' + claseId + '/deleteClase',
+        {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${jwt}`
+            }
+        },{}).then(res => {
+            this.props.borrar(claseId);
+        }).catch(err => {
+            console.log(err);
+        });
+    }
     componentWillMount(){
-        if(this.props.clase.clase % 2 === 0)
+        if(this.props.clase.id % 2 === 0)
         {
             this.setState({
                 ...this.state,
@@ -56,7 +73,7 @@ class ClaseItem extends Component {
                     <div className="card-action center-align">
                         <Link to={ { pathname: '/docente/academico/grupo/materia/asistencia'} }><FaPencilAlt className="green-text ">Editar</FaPencilAlt></Link >
                         <Link to={ { pathname: '/docente/academico/grupo/materia/asistencia'} }><FaArrowAltCircleDown className="blue-text">Ver</FaArrowAltCircleDown></Link >
-                        <Link to={ { pathname: '/docente/academico/grupo/materia/asistencia'} }><MdDelete className="red-text ">Eliminar</MdDelete></Link >   
+                        <Link  onClick = {this.deleteHadle}><MdDelete className="red-text ">Eliminar</MdDelete></Link >   
                     </div>
 
                 </div>

@@ -7,7 +7,7 @@ class ListaClases extends Component {
             <div className="row">
                 {this.props.clases.map(clase => {
                     return (
-                        <ClaseItem key={clase.id} clase={clase}/>
+                        <ClaseItem key={clase.id} clase={clase} borrar = {this.props.borrar}/>
                     );
                 })}
             </div>

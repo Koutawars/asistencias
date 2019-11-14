@@ -77,6 +77,19 @@ class DocenteMateriaGrupo extends Component {
             console.log(err);
         });
     }
+
+    borrar = (id) => {
+        var aux = this.state.clases;
+        var index = aux.map(x => {
+            return x.id;
+          }).indexOf(id);
+          
+          aux.splice(index, 1);
+          this.setState({
+            ...this.state,
+            clases: aux
+          });
+    }
     render() {
         return (
             <React.Fragment>
@@ -96,7 +109,7 @@ class DocenteMateriaGrupo extends Component {
                                     </div>
                                 </div>
                                 <div className="row">
-                                    <ListaClases clases={this.state.clases} />
+                                    <ListaClases clases={this.state.clases} borrar = {this.borrar} />
                                 </div>
                             </div>
                         </div>
