@@ -4,6 +4,8 @@ import ListaAsistencia from '../components/ListaAsistencia';
 import { IoIosArrowBack, IoMdDownload } from 'react-icons/io';
 import SweetAlert from 'sweetalert2-react';
 import { withRouter } from 'react-router-dom';
+import { getJwt } from '../helpers/jwt';
+import axios from 'axios';
 
 class DocenteAsistencia extends Component {
 
@@ -11,6 +13,57 @@ class DocenteAsistencia extends Component {
         show: false,
     }
 
+    componentDidMount(){
+        const jwt = getJwt();
+        const grupoId = this.props.match.params.id;
+        const claseId = this.props.match.params.claseId;
+        let url = "http://localhost:5000/api/docente/" + grupoId + "/getEstudiantes";
+        axios.get(url,
+        {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${jwt}`
+            }
+        } )
+        .then(res => {
+            console.log(res.data);
+            let estudian = res.data.estudiantes.map(e => {
+                e.asistio = 'NO';
+                return e;
+            })
+            this.setState({
+                ...this.state,
+                estudiantes:estudian
+            })
+            axios.get('http://localhost:5000/api/docente/' + claseId +'/getEstudiantesClases',
+                {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${jwt}`
+                    }
+                } )
+                .then((respuesta => {
+                    let estudiantes = this.state.estudiantes;
+                    estudiantes = estudiantes.map(e => {
+                        respuesta.data.estudiantes.forEach(cos => {
+                            if(cos.id == e.id){
+                                e.asistio = 'SI';
+                            }
+                        })
+                        return e;
+                    })
+                    this.setState({
+                        ...this.state,
+                        estudiantes
+                    })
+                    console.log(estudiantes);
+                })).catch(err => {
+                    console.log(err);
+                });
+        }).catch(err => {
+            console.log(err);
+        });
+    }
     constructor(props)
     {
         super(props);
@@ -22,64 +75,8 @@ class DocenteAsistencia extends Component {
                     codigo: 2016114073,
                     nombre:'Camilo',
                     apellido: 'Laiton',
-                    asistio:'SI',
-                },
-                {
-                    id: 2,
-                    codigo: 2016114074,
-                    nombre:'Miller',
-                    apellido: 'Meriño',
-                    asistio:'SI',
-                },
-                {
-                    id: 3,
-                    codigo: 2016114075,
-                    nombre:'Kevin',
-                    apellido: 'Peñaranda',
-                    asistio:'NO',
-                },
-                {
-                    id: 4,
-                    codigo: 2016114076,
-                    nombre:'Camilo',
-                    apellido: 'Laiton',
-                    asistio:'NO',
-                },
-                {
-                    id: 5,
-                    codigo: 2016114077,
-                    nombre:'Miller',
-                    apellido: 'Meriño',
-                    asistio:'SI',
-                },
-                {
-                    id: 6,
-                    codigo: 2016114078,
-                    nombre:'Kevin',
-                    apellido: 'Peñaranda',
-                    asistio:'NO',
-                },
-                {
-                    id: 7,
-                    codigo: 2016114079,
-                    nombre:'Camilo',
-                    apellido: 'Laiton',
-                    asistio:'SI',
-                },
-                {
-                    id: 8,
-                    codigo: 2016114080,
-                    nombre:'Miller',
-                    apellido: 'Meriño',
-                    asistio:'NO',
-                },
-                {
-                    id: 9,
-                    codigo: 2016114081,
-                    nombre:'Kevin',
-                    apellido: 'Peñaranda',
-                    asistio:'SI',
-                },
+                    asistio:'SI'
+                }
             ]
         }
     }

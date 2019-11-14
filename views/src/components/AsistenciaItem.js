@@ -20,7 +20,7 @@ class AsistenciaItem extends Component {
 
                     <td>{info.codigo}</td>
 
-                    <td>{info.nombre} {info.apellido}</td>
+                    <td>{info.nombre}</td>
 
                     <td>
                         {layer}

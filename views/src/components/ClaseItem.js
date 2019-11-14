@@ -74,7 +74,7 @@ class ClaseItem extends Component {
                     </div>
                     <div className="card-action center-align">
                         <Link to={ { pathname: '/docente/academico/grupo/materia/asistencia'} }><FaPencilAlt className="green-text ">Editar</FaPencilAlt></Link >
-                        <Link to={ { pathname: '/docente/academico/grupo/' + this.props.match.params.id  + '/asistencia'} }><FaArrowAltCircleDown className="blue-text">Ver</FaArrowAltCircleDown></Link >
+                        <Link to={ { pathname: '/docente/academico/grupo/' + this.props.match.params.id  + '/' + this.props.clase.id + '/asistencia'} }><FaArrowAltCircleDown className="blue-text">Ver</FaArrowAltCircleDown></Link >
                         <Link  onClick = {this.deleteHadle}><MdDelete className="red-text ">Eliminar</MdDelete></Link >   
                     </div>
 

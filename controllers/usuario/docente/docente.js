@@ -8,6 +8,7 @@ var getEstudiantes = require('./getEstudiantes');
 var addEstudianteClase = require('./addEstudianteClase');
 var deleteClase = require('./deleteClase');
 var getHorarios = require('./getHorario');
+var getEstudiantesClases = require('./getEstudiantesClases');
 
 // traer materias
 // http://localhost:5000/api/docente/getMaterias
@@ -31,6 +32,10 @@ router.post('/:id/addclase', addClase);
 // id = id del grupo
 // http://localhost:5000/api/docente/:id/getEstudiantes
 router.get('/:id/getEstudiantes', getEstudiantes);
+
+// id = id de la clase
+// http://localhost:5000/api/docente/:id/getEstudiantes
+router.get('/:id/getEstudiantesClases', getEstudiantesClases);
 
 // [POST] http://localhost:5000/api/docente/:id/:idEstudiante/addEstudianteClase
 // id = claseId, idEstudiante = usuarioId(de un estudiante lol)
