@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FaSearch, FaPlus } from 'react-icons/fa';
+import { FaPlus } from 'react-icons/fa';
 import ListaClases from '../../components/Listas/ListaClases';
 import NavbarLog from '../../components/NavbarLog';
 import { Link, withRouter } from 'react-router-dom';
@@ -15,6 +15,7 @@ class DocenteMateriaGrupo extends Component {
             clases: []
         }
     }
+
     getDia(dia){
         var retorna;
         switch(dia){
@@ -43,9 +44,11 @@ class DocenteMateriaGrupo extends Component {
         return retorna;
 
     }
+
     componentDidMount(){
         const jwt = getJwt();
         const grupoId = this.props.match.params.id;
+
         let url = "http://localhost:5000/api/docente/" + grupoId + "/getClases";
         axios.get(url,
         {
@@ -90,6 +93,7 @@ class DocenteMateriaGrupo extends Component {
             clases: aux
           });
     }
+
     render() {
         return (
             <React.Fragment>
@@ -102,16 +106,7 @@ class DocenteMateriaGrupo extends Component {
                     <div className="row">
                         <div className="row">
                             <div className="col s12">
-                                <div className="row">
-                                    <div className="input-field col s12">
-                                        <FaSearch className="prefix"/>
-                                        <input type="text" className="form-control" />
-                                        <label >Buscar por tema, grupo, salon...</label>
-                                    </div>
-                                </div>
-                                <div className="row">
-                                    <ListaClases clases={this.state.clases} borrar = {this.borrar} />
-                                </div>
+                                <ListaClases clases={this.state.clases} borrar = {this.borrar} />
                             </div>
                         </div>
                     </div>
