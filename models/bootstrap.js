@@ -80,7 +80,7 @@ module.exports = async () => {
             password: '1234',
             codigo: 1234,
             documento: 1076089044,
-            email: "ccampo@gmail.com"
+            email: "admikouta@gmail.com"
         }).catch(errHandler);
 
         const lista = await Lista.create({});
