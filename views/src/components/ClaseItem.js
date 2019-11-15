@@ -7,7 +7,7 @@ import { MdDelete } from 'react-icons/md'
 import { getJwt } from '../helpers/jwt';
 import axios from 'axios';
 import { withRouter } from 'react-router-dom';
-
+import M from 'materialize-css'
 
 class ClaseItem extends Component {
 
@@ -31,7 +31,7 @@ class ClaseItem extends Component {
         },{}).then(res => {
             this.props.borrar(claseId);
         }).catch(err => {
-            console.log(err);
+            M.toast({html: "No se puede eliminar una clase con estudiantes, remitase a dirección de programa."})
         });
     }
     componentWillMount(){

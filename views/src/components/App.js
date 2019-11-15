@@ -11,6 +11,7 @@ import DocenteMateriaGrupo from '../pages/DocenteMateriaGrupo';
 import DocenteCrearClase from '../pages/DocenteCrearClase';
 import Auth from './AuthenticatedComponent'
 import DocenteAsistencia from '../pages/DocenteAsistencia';
+import ModificarClase from '../pages/DocenteModificarClase';
 
 class App extends Component {
     render(){
@@ -25,6 +26,7 @@ class App extends Component {
               <Route exact path={"/docente/academico/grupo/:id"}  component={Auth(DocenteMateriaGrupo)} ></Route>
               <Route exact path={"/docente/academico/grupo/:id/:claseId/asistencia"}  component={Auth(DocenteAsistencia)} ></Route>
               <Route exact path={"/docente/academico/grupo/:id/crearClase"}  component={Auth(DocenteCrearClase)} ></Route>
+              <Route exact path={"/docente/academico/grupo/:id/modificarClase"}  component={Auth(ModificarClase)} ></Route>
             </Switch>
           </Layout>
         </BrowserRouter>

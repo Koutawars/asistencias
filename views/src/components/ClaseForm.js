@@ -1,6 +1,7 @@
 import React from 'react';
 import { TiEdit } from 'react-icons/ti';
 import { MdDateRange } from 'react-icons/md';
+import { FaCalendarDay } from 'react-icons/fa'
 import { FaEye } from 'react-icons/fa'
 import { IoMdDownload } from 'react-icons/io';
 import SweetAlert from 'sweetalert2-react';
@@ -80,6 +81,7 @@ class ClaseForm extends React.Component {
                         </div>
                     </div>
                     <div className="input-field">
+                        <FaCalendarDay className="prefix">Tematica</FaCalendarDay>
                         <input name= "fecha" id="fecha" type="text" className="datepicker">
                         </input>
                         <label htmlFor="fecha">Fecha de la clase</label>
