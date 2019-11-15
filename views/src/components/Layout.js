@@ -11,6 +11,7 @@ function Layout(props)
         <React.Fragment>
             <Navbar />
             {props.children}
+            <br/><br/><br/><br/><br/>
             <Footer />
         </React.Fragment>
     );

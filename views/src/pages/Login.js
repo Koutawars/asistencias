@@ -46,7 +46,7 @@ class Login extends Component {
                 <div className="col s3"></div>
 
                 <div className="card blue-grey lighten-5 container col s6 ">  
-                    <div className="row card-title blue">
+                    <div className="row card-title #0d47a1 blue darken-4">
                         <h4 className="center-align white-text">Login</h4>
                     </div>
 
@@ -62,7 +62,7 @@ class Login extends Component {
                                 <label htmlFor="password" className="black-text">Contraseña</label>
                             </div>
                             
-                            <button type="submit" className="waves-effect waves-light btn blue z-depth-4 btn btn-block">Entrar</button>
+                            <button type="submit" className="waves-effect waves-light btn #0d47a1 blue darken-4 z-depth-4 btn btn-block">Entrar</button>
 
                         </form>
                     </div>

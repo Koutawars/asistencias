@@ -6,16 +6,19 @@ import React from 'react';
 class Navbar extends React.Component {
   render() {
     return (
-        <div className="navbar-fixed">
-            <nav>
-                <div className="nav-wrapper blue">
-                    <div className="row">
-                        <div className="col s7 push-s5"><span>Grupo de control y registro academico</span></div>
-                        <div className="col s5 pull-s7"><span className="flow-text">Logo</span></div>
+        <header role="banner">
+            <div className="nav-bar">
+                <div className="brand">
+                    <div className="#0d47a1 blue darken-4 center-align">
+                        <a href="https://www.unimagdalena.edu.co/UnidadesOrganizativas/Dependencia/2002">
+                            <img src="https://cdn.unimagdalena.edu.co/images/escudo/bg_dark/default.png" alt="Escudo de la Universidad del Magdalena" />
+                            <p className="center-align white-text">Grupo de Admisiones, Registro y Control Académico <b>Unimagdalena</b></p>
+                            <br/>
+                        </a>
                     </div>
                 </div>
-            </nav>
-        </div>
+            </div>
+        </header>
     );
   }
 }

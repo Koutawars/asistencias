@@ -4,7 +4,7 @@ class Footer extends Component {
     render() {
         return (
             <div className="ver"> 
-                <footer className="page-footer blue">
+                <footer className="page-footer #0d47a1 blue darken-4">
                     <div className="container">
                         <div className="row">
                             <div className="col l6 s12">
