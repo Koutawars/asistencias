@@ -51,7 +51,6 @@ class DocenteModificarClase extends Component {
         const grupoId = this.props.match.params.id;
         const claseId = this.props.match.params.claseId;
         let url = "http://" + window.location.hostname + ":5000/api/docente/" + grupoId + "/" + claseId +  "/updateClase";
-        console.log(this.state);
         axios.post(url, this.state,
         {
             headers: {
