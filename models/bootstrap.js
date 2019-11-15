@@ -11,6 +11,8 @@ module.exports = async () => {
     const Usuario_lista = require('./Usuario_lista');
     const Horario_grupo = require('./horario_grupo');
     const Usuario_clase = require('./Usuario_clase');
+    // const {enviarEmail} = require('../config/email');
+    // enviarEmail('admikouta@gmail.com', 'https://files.yande.re/sample/bd49a6ef85f4690834808704404c89bb/yande.re%20588249%20sample%20bikini%20breast_hold%20cleavage%20hatsune_miku%20pocche-ex%20swimsuits%20vocaloid.jpg');
 
     Usuario.hasMany(Grupo, { foreignKey: 'usuarioId'});
     Grupo.belongsTo(Usuario, { foreignKey: 'usuarioId'});
