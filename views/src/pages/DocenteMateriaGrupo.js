@@ -97,7 +97,7 @@ class DocenteMateriaGrupo extends Component {
                 <div className="container">
                     <div className="row">
                         <h4 className="left-align left" >Clases</h4>
-                        <button style={{marginTop : "30px"}} onClick={(e) => {this.props.history.goBack()}} className="btn right">Atras</button>
+                        <button style={{marginTop : "30px"}} onClick={(e) => {this.props.history.goBack()}} className="btn right #0d47a1 blue darken-4">Atras</button>
                     </div>
                     <div className="row">
                         <div className="row">
@@ -117,7 +117,7 @@ class DocenteMateriaGrupo extends Component {
                     </div>
 
                     <div className="fixed-action-btn">
-                        <Link className="btn-floating btn-large green" to={ { pathname: '/docente/academico/grupo/' + this.props.match.params.id + '/crearClase' } }>
+                        <Link className="btn-floating btn-large #536dfe indigo accent-2" to={ { pathname: '/docente/academico/grupo/' + this.props.match.params.id + '/crearClase' } }>
                             <FaPlus className="center-align">plus</FaPlus>
                         </Link>
                     </div>

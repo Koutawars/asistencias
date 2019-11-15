@@ -30,6 +30,7 @@ class ClaseItem extends Component {
             }
         },{}).then(res => {
             this.props.borrar(claseId);
+            M.toast({html: "La clase se ha eliminado con exito!"})
         }).catch(err => {
             M.toast({html: "No se puede eliminar una clase con estudiantes, remitase a dirección de programa."})
         });
