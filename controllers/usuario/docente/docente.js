@@ -11,6 +11,7 @@ var getHorarios = require('./getHorario');
 var getEstudiantesClases = require('./getEstudiantesClases');
 var codigoqr = require('./codigoqr');
 var updateClase = require('./updateClase');
+var deleteEstudianteClase = require('./deleteEstudianteClase');
 
 router.post('/codigoqr', codigoqr);
 
@@ -48,6 +49,10 @@ router.get('/:id/getEstudiantesClases', getEstudiantesClases);
 // [POST] http://localhost:5000/api/docente/:id/:idEstudiante/addEstudianteClase
 // id = claseId, idEstudiante = usuarioId(de un estudiante lol)
 router.post('/:id/:idEstudiante/addEstudianteClase', addEstudianteClase);
+
+// [POST] http://localhost:5000/api/docente/:id/:idEstudiante/deleteEstudianteClase
+// id = claseId, idEstudiante = usuarioId(de un estudiante lol)
+router.post('/:id/:idEstudiante/deleteEstudianteClase', deleteEstudianteClase);
 
 // ID = id de la clase que va a borrar
 // http://localhost:5000/api/docente/:id/deleteClase

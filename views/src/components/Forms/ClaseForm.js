@@ -56,6 +56,7 @@ class ClaseForm extends React.Component {
         var opciones = this.state.horarios.map((horario) => {
             return <option key = {horario.id} value={horario.id}>{horario.salon} - {horario.horaInicial} a {horario.horaFinal}</option>
         })
+        
         return (
         <div className="container">
             <button style={{marginTop : "30px"}} onClick={(e) => {this.props.history.goBack()}} className="btn right">Atras</button>

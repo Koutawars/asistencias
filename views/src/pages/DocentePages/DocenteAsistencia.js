@@ -83,15 +83,7 @@ class DocenteAsistencia extends Component {
         super(props);
 
         this.state = {
-            estudiantes: [
-                {
-                    id: 1,
-                    codigo: 2016114073,
-                    nombre:'Camilo',
-                    apellido: 'Laiton',
-                    asistio:'SI'
-                }
-            ]
+            estudiantes: []
         }
     }
 
