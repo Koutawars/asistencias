@@ -4,11 +4,11 @@ var Usuario_clase = require('../../../models/Usuario_clase');
 var deleteClase = async (req, res) => {
     var claseId = req.params.id;
     
-    var usuarios = Usuario_clase.findAll({
+    var usuarios = await Usuario_clase.findAll({
         where: {
             claseId
         }
-    })
+    });
 
     if(usuarios.length == 0){
         const clase = await Clase.destroy({
