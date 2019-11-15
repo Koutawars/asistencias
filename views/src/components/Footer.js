@@ -25,7 +25,7 @@ class Footer extends Component {
                                     <li><a className="grey-text text-lighten-3" href="https://estrategia.gobiernoenlinea.gov.co/623/w3-channel.html">Gobierno en Linea</a></li>
                                     <li><a className="grey-text text-lighten-3" href="https://www.mineducacion.gov.co/portal/">Ministerio de Educación</a></li>
                                     <li><a className="grey-text text-lighten-3" href="https://www.unimagdalena.edu.co/Publico/Mecanismos">Mecanismos de Control y Vigilancia</a></li>
-                                    <li><a className="grey-text text-lighten-3" href="">Colombia aprende</a></li>
+                                    <li><a className="grey-text text-lighten-3" href="ttps://www.unimagdalena.edu.co/">Colombia aprende</a></li>
                                 </ul>
                             </div>
                         </div>

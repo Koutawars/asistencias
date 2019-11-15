@@ -5,7 +5,6 @@ import { FaCalendarDay } from 'react-icons/fa'
 import { FaEye } from 'react-icons/fa'
 import { IoMdDownload } from 'react-icons/io';
 import SweetAlert from 'sweetalert2-react';
-import { withRouter } from 'react-router-dom';
 
 class ClaseFormModificar extends Component {
     render() {

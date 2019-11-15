@@ -40,6 +40,9 @@ class DocenteMateriaGrupo extends Component {
             case 7:
                 retorna = "Domingo";
                 break;
+            default:
+                retorna = "";
+                break;
         }
         return retorna;
 

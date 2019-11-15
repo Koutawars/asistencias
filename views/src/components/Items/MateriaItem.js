@@ -19,11 +19,11 @@ class MateriaItem extends Component {
 
         var path = null;
 
-        if(this.props.tipo_usuario == 1)    //Docente
+        if(this.props.tipo_usuario === 1)    //Docente
         {
             path = '/docente/academico/' + this.props.materia.id;   //Manda a la lista de grupos del docente
         }
-        else if(this.props.tipo_usuario == 2)   //Estudiante
+        else if(this.props.tipo_usuario === 2)   //Estudiante
         {
             path = '/estudiante/academico/' + this.props.materia.id //Manda a la lista de clases del estudiante y la clase
         }

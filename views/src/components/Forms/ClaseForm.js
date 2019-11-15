@@ -45,7 +45,7 @@ class ClaseForm extends React.Component {
 
     
     componentDidUpdate(prev_props, prev_state){
-        if(this.state.horarios.length != prev_state.horarios.length){
+        if(this.state.horarios.length !== prev_state.horarios.length){
             var elems = document.querySelectorAll('select');
             M.FormSelect.init(elems, {});
             var eleme = document.querySelectorAll('.datepicker');

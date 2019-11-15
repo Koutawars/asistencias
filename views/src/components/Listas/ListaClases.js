@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ClaseItem from '../Items/ClaseItem';
 import { FaSearch } from 'react-icons/fa';
 
@@ -25,7 +25,7 @@ function ListaClases (props) {
 
     const { query, setQuery, clasesFiltradas } = useBuscarClases(props.clases);
 
-    if(clasesFiltradas.length == 0)
+    if(clasesFiltradas.length === 0)
     {
         return(
             <React.Fragment>

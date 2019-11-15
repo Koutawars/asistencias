@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 import NavbarLog from '../../components/NavbarLog';
 import ListaMaterias from '../../components/Listas/ListaMaterias';
 
-import { getJwt } from '../../helpers/jwt';
-import axios from 'axios';
+// import { getJwt } from '../../helpers/jwt';
+// import axios from 'axios';
 
 /*
     Esta vista es para mostrar las materias del estudiante que es tipo de usuario 2 (Verificar con BD)

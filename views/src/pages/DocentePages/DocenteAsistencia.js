@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import NavbarLog from '../../components/NavbarLog';
 import ListaAsistencia from '../../components/Listas/ListaAsistencia';
-import { IoIosArrowBack, IoMdDownload } from 'react-icons/io';
-import SweetAlert from 'sweetalert2-react';
+import { IoIosArrowBack } from 'react-icons/io';
 import { withRouter } from 'react-router-dom';
 import { getJwt } from '../../helpers/jwt';
 import axios from 'axios';
@@ -61,7 +60,7 @@ class DocenteAsistencia extends Component {
                     let estudiantes = this.state.estudiantes;
                     estudiantes = estudiantes.map(e => {
                         respuesta.data.estudiantes.forEach(cos => {
-                            if(cos.id == e.id){
+                            if(cos.id === e.id){
                                 e.asistio = 'SI';
                             }
                         })
