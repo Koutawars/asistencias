@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import NavbarLog from '../components/NavbarLog';
-import ListaMaterias from '../components/ListaMaterias';
+import NavbarLog from '../../components/NavbarLog';
+import ListaMaterias from '../../components/ListaMaterias';
 
-import { getJwt } from '../helpers/jwt';
+import { getJwt } from '../../helpers/jwt';
 import axios from 'axios';
 class Docente extends Component {
 

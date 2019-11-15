@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import NavbarLog from '../components/NavbarLog';
-import ListaAsistencia from '../components/ListaAsistencia';
+import NavbarLog from '../../components/NavbarLog';
+import ListaAsistencia from '../../components/ListaAsistencia';
 import { IoIosArrowBack, IoMdDownload } from 'react-icons/io';
 import SweetAlert from 'sweetalert2-react';
 import { withRouter } from 'react-router-dom';
-import { getJwt } from '../helpers/jwt';
+import { getJwt } from '../../helpers/jwt';
 import axios from 'axios';
 
 class DocenteAsistencia extends Component {

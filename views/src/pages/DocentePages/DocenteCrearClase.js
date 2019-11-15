@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import NavbarLog from '../components/NavbarLog';
-import ClaseForm from '../components/ClaseForm';
-import { getJwt } from '../helpers/jwt';
+import NavbarLog from '../../components/NavbarLog';
+import ClaseForm from '../../components/ClaseForm';
+import { getJwt } from '../../helpers/jwt';
 import { withRouter } from 'react-router-dom';
 import axios from 'axios';
 

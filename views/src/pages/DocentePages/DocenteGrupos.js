@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import NavbarLog from '../components/NavbarLog';
-import ListaGrupos from '../components/ListaGrupos';
+import NavbarLog from '../../components/NavbarLog';
+import ListaGrupos from '../../components/ListaGrupos';
 import { withRouter } from 'react-router-dom';
-import { getJwt } from '../helpers/jwt';
+import { getJwt } from '../../helpers/jwt';
 import axios from 'axios';
 
 class DocenteGrupos extends Component {
