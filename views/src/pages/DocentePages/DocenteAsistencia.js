@@ -70,7 +70,6 @@ class DocenteAsistencia extends Component {
                         ...this.state,
                         estudiantes
                     })
-                    console.log(estudiantes);
                 })).catch(err => {
                     console.log(err);
                 });

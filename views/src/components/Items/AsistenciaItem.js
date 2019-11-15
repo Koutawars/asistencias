@@ -8,6 +8,12 @@ import { getJwt } from '../../helpers/jwt';
 
 
 class AsistenciaItem extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            asistio: ''
+        }
+    }
     handleChange = (e) => {
         if(e.target.checked){
             // http://localhost:5000/api/docente/:id/:idEstudiante/addEstudianteClase
@@ -23,6 +29,7 @@ class AsistenciaItem extends Component {
                 }
             } )
             .then(res => {
+                console.log("poner");
                 console.log("DATA: ", res.data);
             }).catch(err => {
                 console.log(err);
@@ -41,20 +48,38 @@ class AsistenciaItem extends Component {
                 }
             } )
             .then(res => {
+                console.log("quitar");
                 console.log("DATA: ", res.data);
             }).catch(err => {
                 console.log(err);
             });
         }
     }
+    componentWillMount(){
+        const info = this.props.estudiante;
+        this.setState({
+            asistio: info.asistio
+        })
+    }
+
+    componentWillReceiveProps(nextProps, nextContext){
+        var asistio = nextProps.estudiante.asistio;
+        if(asistio == 'NO'){
+            console.log(document.querySelectorAll("#checkbo")[0]);
+            document.querySelectorAll("#checkbo")[0].checked = false;
+        }else {
+            console.log(document.querySelectorAll("#checkbo")[0]);
+            document.querySelectorAll("#checkbo")[0].checked = true;
+        }
+    }
     render() {
         const info = this.props.estudiante;
         var layer = <div className="switch">
             <label>
-            <IoIosCloseCircle className="red-text"></IoIosCloseCircle>
-            {(info.asistio === 'NO')? <input onChange={this.handleChange} type="checkbox" />:<input onChange={this.handleChange} type="checkbox"  checked/>}
-            <span className="lever"></span>
-            <MdCheckCircle className="green-text"></MdCheckCircle>
+                <IoIosCloseCircle className="red-text"></IoIosCloseCircle>
+                <input id="checkbo" onChange={this.handleChange} type="checkbox" />
+                <span className="lever"></span>
+                <MdCheckCircle className="green-text"></MdCheckCircle>
             </label>
         </div>;
 
