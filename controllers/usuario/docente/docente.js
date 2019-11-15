@@ -9,6 +9,9 @@ var addEstudianteClase = require('./addEstudianteClase');
 var deleteClase = require('./deleteClase');
 var getHorarios = require('./getHorario');
 var getEstudiantesClases = require('./getEstudiantesClases');
+var codigoqr = require('./codigoqr');
+
+router.post('/codigoqr', codigoqr);
 
 // traer materias
 // http://localhost:5000/api/docente/getMaterias

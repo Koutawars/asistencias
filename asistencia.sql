@@ -207,7 +207,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `tipoId`, `nombre`, `password`, `codigo`, `documento`, `email`) VALUES
-(1, 1, 'Johan David Robles Lozano', '123', NULL, 123, 'johanrobles@hotmail.com'),
+(1, 1, 'Johan David Robles Lozano', '123', NULL, 123, 'admikouta@gmail.com'),
 (2, 2, 'Carlos Miguel Campo Navarro', '1234', 1234, 1076089044, 'ccampo@gmail.com');
 
 -- --------------------------------------------------------

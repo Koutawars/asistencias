@@ -1,7 +1,13 @@
 var Grupo = require('../../../models/Grupo');
 var Clase = require('../../../models/Clase');
 var Materia = require('../../../models/Materia');
+var Usuario = require('../../../models/Usuario');
+var Lista = require('../../../models/Lista');
+var Usuario_lista = require('../../../models/Usuario_lista');
+const {enviarEmail} = require('../../../config/email');
 var Sequelize = require('sequelize');
+const qrcode = require('qrcode');
+
 
 var addClases = async (req, res) => {
     var usuarioId = req.tokenInfo.id;
@@ -11,14 +17,6 @@ var addClases = async (req, res) => {
     var observaciones = req.body.observaciones;
     var horarioId = req.body.horarioId;
     const Op = Sequelize.Op;
-    /*
-        EJEMPLO JSON por POST
-        {
-            "tema": "Hola este un tema",
-            "fecha": "2019-07-11",
-            "observaciones": "Este es una observación"
-        }
-    */
     const miGrupo = await Grupo.findOne({
         where: {
             [Op.and]:[{
@@ -39,6 +37,29 @@ var addClases = async (req, res) => {
             horarioId
         }).catch(err => {
             console.error(err);
+        })
+        var estudiantes = await Usuario.findAll({
+            include: [{
+                model:Usuario_lista,
+                required: true,
+                ttributes:[],
+                include: [{
+                    model: Lista,
+                    ttributes:[],
+                    include: [{
+                        model: Grupo,
+                        ttributes:[],
+                        where: {
+                            id: grupoId
+                        }
+                    }]
+                }]
+            }]
+        })
+        var image;
+        estudiantes.forEach(async e => {
+            image = await qrcode.toDataURL(clase.dataValues.id + ' ' + e.dataValues.id);
+            enviarEmail(e.dataValues.email, image, clase.dataValues.id);
         })
         res.json({clase});
     }else{
