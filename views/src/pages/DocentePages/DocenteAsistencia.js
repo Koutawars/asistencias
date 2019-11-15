@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import NavbarLog from '../../components/NavbarLog';
-import ListaAsistencia from '../../components/ListaAsistencia';
+import ListaAsistencia from '../../components/Listas/ListaAsistencia';
 import { IoIosArrowBack, IoMdDownload } from 'react-icons/io';
 import SweetAlert from 'sweetalert2-react';
 import { withRouter } from 'react-router-dom';

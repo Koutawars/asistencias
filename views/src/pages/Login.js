@@ -31,7 +31,7 @@ class Login extends Component {
                 error: ""
             });
         }).catch((err) => {
-            M.toast({html: err.response.data.error})
+            M.toast({html: "Nombre de usuario o contraseña incorrectos"})
         });
     }
     componentDidMount(){

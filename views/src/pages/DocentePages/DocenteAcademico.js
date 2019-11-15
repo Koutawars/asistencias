@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import NavbarLog from '../../components/NavbarLog';
-import ListaMaterias from '../../components/ListaMaterias';
+import ListaMaterias from '../../components/Listas/ListaMaterias';
 
 import { getJwt } from '../../helpers/jwt';
 import axios from 'axios';
+
 class Docente extends Component {
 
     constructor(props)
@@ -17,7 +18,7 @@ class Docente extends Component {
 
     componentDidMount(){
         const jwt = getJwt();
-        let url = "http://localhost:5000/api/docente/getMaterias";
+        let url = "http://localhost:5000/api/docente/getMaterias";//obtener materias de estudiante con id del que pide
         axios.get(url,
         {
             headers: {
@@ -36,6 +37,7 @@ class Docente extends Component {
     }
     render() {
         const info = this.state;
+
         return (
             <React.Fragment>
                 <NavbarLog tipo = {this.props.data.tipoId} nombre={this.props.data.nombre}></NavbarLog>
@@ -47,7 +49,7 @@ class Docente extends Component {
 
                 <div className="section">
                     <div className="container center-align">
-                        <ListaMaterias materias={info.materias}/>
+                        <ListaMaterias materias={info.materias} tipo_usuario={1}/>
                     </div>
                 </div>
                             

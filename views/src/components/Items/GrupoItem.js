@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import IconGroup from '../images/icon_group.png';
+import IconGroup from '../../images/icon_group.png';
 import {Link} from 'react-router-dom';
 import { FaArrowAltCircleRight } from 'react-icons/fa';
 

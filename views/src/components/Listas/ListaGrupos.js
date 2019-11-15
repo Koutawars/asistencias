@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import GrupoItem from '../components/GrupoItem';
+import GrupoItem from '../Items/GrupoItem';
 
 class ListaGrupos extends Component {
     render() {

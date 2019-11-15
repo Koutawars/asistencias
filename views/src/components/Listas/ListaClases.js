@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ClaseItem from '../components/ClaseItem';
+import ClaseItem from '../Items/ClaseItem';
 
 class ListaClases extends Component {
     render() {
