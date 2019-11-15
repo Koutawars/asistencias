@@ -22,13 +22,13 @@ class EstudianteAcademico extends Component {
         super(props);
         this.state = {
             ruta_imagen: 'https://www.lacucurucha.com.ar/circuito/images/usuario.jpeg',
-                materias: []
+            materias: []
         };
     }
 
     componentDidMount(){
         const jwt = getJwt();
-        let url = "http://" + window.location.hostname + ":5000/api/estudiante/getMaterias";//obtener materias de estudiante con id del que pide
+        let url = "http://" + window.location.hostname + ":5000/api/estudiante/getMateria";//obtener materias de estudiante con id del que pide
         axios.get(url,
         {
             headers: {
@@ -49,7 +49,6 @@ class EstudianteAcademico extends Component {
     render() {
         
         const info = this.state;
-
         return (
             <React.Fragment>
                 <NavbarLog tipo = {this.props.data.tipoId} nombre={this.props.data.nombre}></NavbarLog>
