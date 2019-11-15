@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import Modelado1 from '../images/modelado_1.jpeg';
-import Modelado2 from '../images/modelado_2.jpeg';
+import Modelado1 from '../../images/modelado_1.jpeg';
+import Modelado2 from '../../images/modelado_2.jpeg';
 import {Link} from 'react-router-dom';
 import { FaPlus, FaMinus, FaArrowAltCircleDown, FaPencilAlt } from 'react-icons/fa';
 import { MdDelete } from 'react-icons/md'
-import { getJwt } from '../helpers/jwt';
+import { getJwt } from '../../helpers/jwt';
 import axios from 'axios';
 import { withRouter } from 'react-router-dom';
 import M from 'materialize-css'

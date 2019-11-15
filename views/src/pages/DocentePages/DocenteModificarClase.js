@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import NavbarLog from '../../components/NavbarLog';
 
-import ClaseFormModificar from '../../components/ClaseFormModificar';
+import ClaseFormModificar from '../../components/Forms/ClaseFormModificar';
 
 class DocenteModificarClase extends Component {
     

@@ -8,7 +8,7 @@ import SweetAlert from 'sweetalert2-react';
 import { withRouter } from 'react-router-dom';
 
 
-import { getJwt } from '../helpers/jwt';
+import { getJwt } from '../../helpers/jwt';
 import axios from 'axios';
 
 import M from 'materialize-css'

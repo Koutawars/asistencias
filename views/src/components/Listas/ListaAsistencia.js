@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import AsistenciaItem from '../components/AsistenciaItem';
+import AsistenciaItem from '../Items/AsistenciaItem';
 
 class ListaAsistencia extends Component {
     render() {

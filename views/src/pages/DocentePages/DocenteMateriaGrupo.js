@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { FaSearch, FaPlus } from 'react-icons/fa';
-import ListaClases from '../../components/ListaClases';
+import ListaClases from '../../components/Listas/ListaClases';
 import NavbarLog from '../../components/NavbarLog';
 import { Link, withRouter } from 'react-router-dom';
 import { getJwt } from '../../helpers/jwt';
