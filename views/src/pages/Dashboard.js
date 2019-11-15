@@ -3,6 +3,7 @@ import NavbarLog from '../components/NavbarLog';
 import '../css/Docente.css';
 import { getJwt } from '../helpers/jwt';
 import axios from 'axios';
+import { withRouter } from 'react-router-dom';
 class Dashboard extends Component {
     constructor(props)
     {
@@ -18,8 +19,9 @@ class Dashboard extends Component {
         };
     }
     componentDidMount(){
+        console.log(this.props);
         const jwt = getJwt();
-        let url = "http://localhost:5000/api/getUser";
+        let url = "http://" + window.location.hostname + ":5000/api/getUser";
         axios.get(url,
         {
             headers: {
@@ -85,4 +87,4 @@ class Dashboard extends Component {
     }
 }
 
-export default Dashboard;
+export default withRouter(Dashboard);

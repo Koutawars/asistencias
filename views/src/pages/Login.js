@@ -20,7 +20,7 @@ class Login extends Component {
     };
     handleSubmit = (e) => {
         e.preventDefault();
-        axios.post('http://localhost:5000/api/login',  {
+        axios.post("http://" + window.location.hostname + ":5000/api/login",  {
             usuario: this.state.usuario,
             password: this.state.password
         }).then(res => {

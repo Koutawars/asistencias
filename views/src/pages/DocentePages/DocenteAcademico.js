@@ -18,7 +18,7 @@ class Docente extends Component {
 
     componentDidMount(){
         const jwt = getJwt();
-        let url = "http://localhost:5000/api/docente/getMaterias";//obtener materias de estudiante con id del que pide
+        let url = "http://" + window.location.hostname + ":5000/api/docente/getMaterias";//obtener materias de estudiante con id del que pide
         axios.get(url,
         {
             headers: {

@@ -50,7 +50,7 @@ class DocenteCrearClase extends Component {
         e.preventDefault();
         const jwt = getJwt();
         const grupoId = this.props.match.params.id;
-        let url = "http://localhost:5000/api/docente/" + grupoId + "/addclase";
+        let url = "http://" + window.location.hostname + ":5000/api/docente/" + grupoId + "/addclase";
         axios.post(url, this.state,
         {
             headers: {

@@ -22,7 +22,7 @@ class ClaseItem extends Component {
     deleteHadle = (e) => {        
         const jwt = getJwt();
         const claseId = this.props.clase.id;
-        axios.delete(' http://localhost:5000/api/docente/' + claseId + '/deleteClase',
+        axios.delete("http://" + window.location.hostname + ':5000/api/docente/' + claseId + '/deleteClase',
         {
             headers: {
                 'Content-Type': 'application/json',

@@ -49,7 +49,7 @@ class DocenteAsistencia extends Component {
                 ...this.state,
                 estudiantes:estudian
             })
-            axios.get('http://localhost:5000/api/docente/' + claseId +'/getEstudiantesClases',
+            axios.get('http://' + window.location.hostname + ':5000/api/docente/' + claseId +'/getEstudiantesClases',
                 {
                     headers: {
                         'Content-Type': 'application/json',

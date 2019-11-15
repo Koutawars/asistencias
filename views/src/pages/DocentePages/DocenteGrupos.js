@@ -18,7 +18,7 @@ class DocenteGrupos extends Component {
     componentDidMount(){
         const jwt = getJwt();
         const materiaId = this.props.match.params.id;
-        let url = "http://localhost:5000/api/docente/" + materiaId + "/getGrupos";
+        let url = "http://" + window.location.hostname + ":5000/api/docente/" + materiaId + "/getGrupos";
         axios.get(url,
         {
             headers: {

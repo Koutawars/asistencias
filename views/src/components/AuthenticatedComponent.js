@@ -18,7 +18,7 @@ export default function (Componente){
                 this.props.history.push('/login');
             }
 
-            axios.post('http://localhost:5000/api/auth', {},
+            axios.post("http://" + window.location.hostname + ':5000/api/auth', {},
             {
                 headers: {
                     'Content-Type': 'application/json',

@@ -24,7 +24,7 @@ class ClaseForm extends React.Component {
     componentDidMount(){
         const jwt = getJwt();
         const grupoId = this.props.match.params.id;
-        let url = "http://localhost:5000/api/docente/" + grupoId + "/getHorarios";
+        let url = "http://" + window.location.hostname + ":5000/api/docente/" + grupoId + "/getHorarios";
         axios.get(url,
         {
             headers: {
