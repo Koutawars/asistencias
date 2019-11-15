@@ -14,6 +14,35 @@ import ListaMaterias from '../../components/Listas/ListaMaterias';
 */
 
 class EstudianteAcademico extends Component {
+    constructor(props)
+    {
+        super(props);
+        this.state = {
+            ruta_imagen: 'https://www.lacucurucha.com.ar/circuito/images/usuario.jpeg',
+                materias: []
+        };
+    }
+
+    componentDidMount(){
+        const jwt = getJwt();
+        let url = "http://" + window.location.hostname + ":5000/api/estudiante/getMaterias";//obtener materias de estudiante con id del que pide
+        axios.get(url,
+        {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${jwt}`
+            }
+        } )
+        .then(res => {
+            this.setState({
+                materias: res.data.materias
+            });
+            console.log(res.data);
+        }).catch(err => {
+            console.log(err);
+        });
+    }
+
     render() {
         
         const info = this.state;
