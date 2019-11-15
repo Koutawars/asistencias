@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 
+import { getJwt } from '../../helpers/jwt';
+import axios from 'axios';
+
 import NavbarLog from '../../components/NavbarLog';
 import ListaMaterias from '../../components/Listas/ListaMaterias';
 
