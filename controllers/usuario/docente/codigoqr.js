@@ -9,36 +9,45 @@ const Jimp = require('jimp');
 
 var codigoqr = async (req, res) => {
     var usuarioId = req.tokenInfo.id;
-    var imagen = await Jimp.read( Buffer.from(req.body.imagen, 'base64'));
+    var base64Image = req.body.imagen.split("data:image/png;base64,")[1];
+    var imagen = await Jimp.read( Buffer.from(base64Image, 'base64'))
+    .catch(err => {
+        console.log(err);
+    })
+    var error = false;
     const qr = new QRReader();
     const value = await new Promise((resolve, reject) => {
         qr.callback = (err, v) => err != null ? reject(err) : resolve(v);
         qr.decode(imagen.bitmap);
-    });
+    }).catch(err=> {
+        res.json({});
+        error = true;
+    })
+    if(!error){
+        var result = value.result.split(" ");
+        var claseId = result[0];
+        var estudianteId = result[1];
 
-    var result = value.result.split(" ");
-    var claseId = result[0];
-    var estudianteId = result[1];
+        const Op = Sequelize.Op;
 
-    const Op = Sequelize.Op;
-
-    const usuarios = await Usuario_clase.findOne({
-        where: {
-            [Op.and]: [
-                {usuarioId: estudianteId}, {claseId}
-            ]
+        const usuarios = await Usuario_clase.findOne({
+            where: {
+                [Op.and]: [
+                    {usuarioId: estudianteId}, {claseId}
+                ]
+            }
+        });
+        if(!usuarios){
+            const usuario_clase = await Usuario_clase.create({
+                usuarioId: estudianteId,
+                claseId
+            }).catch(err => {
+                console.error(err);
+            })
+            res.json({usuario_clase});
         }
-    });
-    if(!usuarios.dataValues.id){
-        const usuario_clase = await Usuario_clase.create({
-            usuarioId: estudianteId,
-            claseId
-        }).catch(err => {
-            console.error(err);
-        })
-        res.json({usuario_clase});
+        res.json({});
     }
-    res.json({});
 }
 
 module.exports = codigoqr;

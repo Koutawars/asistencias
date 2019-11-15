@@ -4,13 +4,11 @@ var path = require('path'); // esta librería la trae node incluida, acá se req
 var body_parser = require('body-parser'); 
 var cors = require('cors');
 
-
 app.use(cors());
 
 app.set('views', path.join(__dirname ,'/views'));
-
-app.use(body_parser.json());
-app.use(body_parser.urlencoded({extended:true}));
+app.use(body_parser.json({limit: '50mb'}));
+app.use(body_parser.urlencoded({limit: '50mb', extended: true}));
 
 app.use('/', express.static(path.resolve(__dirname + '/views/build/')));
 
