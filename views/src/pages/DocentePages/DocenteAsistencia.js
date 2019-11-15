@@ -7,6 +7,21 @@ import { withRouter } from 'react-router-dom';
 import { getJwt } from '../../helpers/jwt';
 import axios from 'axios';
 
+/*
+    Boton de descargas -> Por si lo necesitamos eventualmente
+
+    <div className="col s6 right-align">
+        <button onClick={() => this.setState({ show: true })} className="btn btn-primary left-align"><IoMdDownload>Descargar</IoMdDownload> Descargar</button>
+        <SweetAlert
+            show={this.state.show}
+            title="Lista de asistencia"
+            type="success"
+            text="El documento se descargara en breve..."
+            onConfirm={() => this.setState({ show: false })}
+        />
+    </div>
+*/
+
 class DocenteAsistencia extends Component {
 
     state = {
@@ -104,17 +119,6 @@ class DocenteAsistencia extends Component {
                         <div className="row">
                             <div className="col s6 left-align">
                                 <button onClick={this.handleClick} className="btn btn-primary left-align"><IoIosArrowBack>Back</IoIosArrowBack> Atrás</button>
-                            </div>
-                            
-                            <div className="col s6 right-align">
-                                <button onClick={() => this.setState({ show: true })} className="btn btn-primary left-align"><IoMdDownload>Descargar</IoMdDownload> Descargar</button>
-                                <SweetAlert
-                                    show={this.state.show}
-                                    title="Lista de asistencia"
-                                    type="success"
-                                    text="El documento se descargara en breve..."
-                                    onConfirm={() => this.setState({ show: false })}
-                                />
                             </div>
                         </div>
                     </div>
