@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import NavbarLog from '../../components/NavbarLog';
 import { getJwt } from '../../helpers/jwt';
 import axios from 'axios';
+import M from 'materialize-css'
 
 class codigoQr extends Component {
     constructor(props)
@@ -32,7 +33,10 @@ class codigoQr extends Component {
                 }
             } )
             .then(res => {
-                console.log("DATA: ", res.data);
+              if(res.data.usuario){
+                console.log("estudiante: ", res.data);
+                M.toast({html: 'Bienvenido ' + res.data.usuario.nombre})
+              }
             }).catch(err => {
                 console.log(err);
             });

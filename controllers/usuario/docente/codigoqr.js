@@ -4,6 +4,7 @@ var Usuario_clase = require('../../../models/Usuario_clase');
 var Sequelize = require('sequelize');
 const QRReader = require('qrcode-reader');
 const Jimp = require('jimp');
+const Usuario = require('../../../models/Usuario');
 
 
 
@@ -38,15 +39,21 @@ var codigoqr = async (req, res) => {
             }
         });
         if(!usuarios){
+            const estu = await Usuario.findOne({
+                where: {
+                    id: estudianteId
+                }
+            })
             const usuario_clase = await Usuario_clase.create({
                 usuarioId: estudianteId,
                 claseId
             }).catch(err => {
                 console.error(err);
             })
-            res.json({usuario_clase});
+            res.json({usuario_clase, usuario:estu});
+        }else{
+            res.code(400);
         }
-        res.json({});
     }
 }
 
