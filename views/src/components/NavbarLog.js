@@ -21,12 +21,16 @@ class NavbarLog extends Component {
         var navlinks = (this.props.tipo === 1)? 
                 <li className={this.getNavLinkClass("/docente/academico")}><NavLink to ="/docente/academico">Academico</NavLink></li>
                 :<div></div>;
+        var codigoQr = (this.props.tipo === 1)? 
+        <li className={this.getNavLinkClass("/docente/codigoqr")}><NavLink to ="/docente/codigoqr">CodigoQR</NavLink></li>
+        :<div></div>;
         return (
             <nav>
                 <div className="nav-wrapper grey">
                     <ul>
                         <li className={this.getNavLinkClass("/")}><NavLink to ="/">Inicio</NavLink></li>
                         {navlinks}
+                        {codigoQr}
                         <li className="right"><a href="/" onClick = {this.logOut}>Cerrar sesión</a></li>
                         <li className="right">{this.props.nombre}</li>
                     </ul>

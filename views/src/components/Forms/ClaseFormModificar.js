@@ -6,8 +6,55 @@ import { FaEye } from 'react-icons/fa'
 import { IoMdDownload } from 'react-icons/io';
 import SweetAlert from 'sweetalert2-react';
 
+import { getJwt } from '../../helpers/jwt';
+import axios from 'axios';
+
+import M from 'materialize-css'
+
 class ClaseFormModificar extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            show:false,
+            horarios:[]
+        }
+    }
+    componentDidMount(){
+        const jwt = getJwt();
+        const grupoId = this.props.match.params.id;
+        let url = "http://" + window.location.hostname + ":5000/api/docente/" + grupoId + "/getHorarios";
+        axios.get(url,
+        {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${jwt}`
+            }
+        } )
+        .then(res => {
+            this.setState({
+                ...this.state,
+                horarios: res.data.horarios
+            })
+            console.log(this.state);
+        }).catch(err => {
+            console.log(err);
+        });
+    }
+
+    
+    componentDidUpdate(prev_props, prev_state){
+        if(this.state.horarios.length !== prev_state.horarios.length){
+            var elems = document.querySelectorAll('select');
+            M.FormSelect.init(elems, {});
+            var eleme = document.querySelectorAll('.datepicker');
+            M.Datepicker.init(eleme, {});
+        }
+    }
+
     render() {
+        var opciones = this.state.horarios.map((horario) => {
+            return <option key = {horario.id} value={horario.id}>{horario.salon} - {horario.horaInicial} a {horario.horaFinal}</option>
+        })
         return (
             <div>
                 <div className="container">
@@ -30,7 +77,6 @@ class ClaseFormModificar extends Component {
                                         onChange={this.props.onChange} 
                                         type="text" 
                                         name="tema"
-                                        placeholder={this.props.formValues.tema}
                                     />
                                     <label className="icon_prefix">Tema</label>
                                 </div>
@@ -45,6 +91,7 @@ class ClaseFormModificar extends Component {
                                 <MdDateRange className="prefix">Horario</MdDateRange>
                                 <select id="horario" name="horarioId" defaultValue={'DEFAULT'} onChange={this.props.onChange} >
                                 <option value="DEFAULT" disabled>Escoja horario y clase</option>
+                                {opciones}
                                 </select>
                                 <label>Horario</label>
                             </div>
@@ -57,7 +104,6 @@ class ClaseFormModificar extends Component {
                                         onChange={this.props.onChange} 
                                         type="text" 
                                         name="observaciones"
-                                        placeholder={this.props.formValues.observaciones}
                                     />
                                     <label htmlFor="icon_prefix">Observacion</label>
                                 </div>

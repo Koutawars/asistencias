@@ -10,6 +10,7 @@ var deleteClase = require('./deleteClase');
 var getHorarios = require('./getHorario');
 var getEstudiantesClases = require('./getEstudiantesClases');
 var codigoqr = require('./codigoqr');
+var updateClase = require('./updateClase');
 
 router.post('/codigoqr', codigoqr);
 
@@ -31,6 +32,10 @@ router.get('/:id/getHorarios', getHorarios);
 // id = grupo
 // http://localhost:5000/api/docente/:id/addclase
 router.post('/:id/addclase', addClase);
+
+// id = grupo, claseId = id de la clase
+// http://localhost:5000/api/docente/:id/:claseId/updateClase
+router.post('/:id/:claseId/updateClase', updateClase);
 
 // id = id del grupo
 // http://localhost:5000/api/docente/:id/getEstudiantes
