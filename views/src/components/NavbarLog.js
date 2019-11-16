@@ -31,8 +31,10 @@ class NavbarLog extends Component {
                         <li className={this.getNavLinkClass("/")}><NavLink to ="/">Inicio</NavLink></li>
                         {navlinks}
                         {codigoQr}
+                        {(this.props.tipo === 2)? <li className={this.getNavLinkClass("/estudiante/academico")}><NavLink to ="/estudiante/academico">Academico</NavLink></li>:<div></div>}
                         <li className="right"><a href="/" onClick = {this.logOut}>Cerrar sesión</a></li>
                         <li className="right">{this.props.nombre}</li>
+
                     </ul>
                 </div>
             </nav>
