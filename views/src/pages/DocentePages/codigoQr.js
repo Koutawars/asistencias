@@ -65,26 +65,39 @@ class codigoQr extends Component {
       return (
       <div>
         <NavbarLog tipo = {this.props.data.tipoId} nombre={this.props.data.nombre}></NavbarLog>
-
-        <div className="container center-align">
-
-          <div className="row">
-            <br/>
-            <h5>Video</h5>
-            <button onClick={this.capture} className="btn btn-primary #0d47a1 blue darken-4">Tomar foto</button>
-          </div>
-
-          <div className="row">
-            <video src=""></video>
-          </div>
-
-          <div className="row">
-            <h5>Foto</h5>
-            <canvas id="canvas"></canvas>
-          </div>
-
-        </div>
         
+        <h4 className="left-align">
+            <span>Asistencia por QR</span>
+        </h4>
+
+        <div className="divider"></div>
+
+        <div className="section">
+            <div className="container center-align">
+
+              <div class="col">
+                <div class="row">
+                  <br/>
+                  <h5>Video</h5>
+                  <button onClick={this.capture} className="btn btn-primary #0d47a1 blue darken-4">Tomar foto</button>
+                </div>
+
+                <div className="row">
+                <video src=""></video>
+                
+                </div>
+                <div className="row">
+                <canvas id="canvas"></canvas>
+                
+                </div>
+                  
+
+                  
+              
+              </div>
+            </div>
+        </div>
+
       </div>);
     }
 }
