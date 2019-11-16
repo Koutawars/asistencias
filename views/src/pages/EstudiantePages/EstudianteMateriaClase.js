@@ -12,7 +12,8 @@ class EstudianteMateriaClase extends Component {
     {
         super(props);
         this.state = {
-            clases: []
+            clases: [],
+            clases_2: []
         }
     }
 
@@ -56,6 +57,7 @@ class EstudianteMateriaClase extends Component {
 
         let url = "http://" + window.location.hostname + ":5000/api/estudiante/" + grupoId + "/getClases";
         console.log(url);
+
         axios.get(url,
         {
             headers: {
@@ -85,6 +87,42 @@ class EstudianteMateriaClase extends Component {
         }).catch(err => {
             console.log(err);
         });
+
+        url = "http://" + window.location.hostname + ":5000/api/estudiante/" + grupoId + "/getMisClases";
+        console.log(url);
+        
+        axios.get(url,
+        {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${jwt}`
+            }
+        } )
+        .then(res => {
+            var clases_2 = [];
+            res.data._2.forEach(clase => {
+                let horaInicial, horaFinal;
+                horaInicial = clase.Horario.horaInicial.split(":")[0];
+                horaFinal = clase.Horario.horaFinal.split(":")[0];
+                clases_2.push({
+                    id: clase.id,
+                    horario: this.getDia(clase.Horario.dia) + " " +  horaInicial + "-" + horaFinal,
+                    tema: clase.tema,
+                    observacion: clase.observaciones,
+                    fecha: clase.fecha,
+                    salon: clase.Horario.salon
+                })
+            });
+            this.setState({
+                clases_2
+            })
+            console.log(clases_2);
+        }).catch(err => {
+            console.log(err);
+        });
+
+        //Hacer iteraciones para comparar clases totales y clases a las que asistio
+
     }
 
     borrar = (id) => {
@@ -112,15 +150,9 @@ class EstudianteMateriaClase extends Component {
                     <div className="row">
                         <div className="row">
                             <div className="col s12">
-                                <ListaClases clases={this.state.clases} borrar = {this.borrar} />
+                                <ListaClases clases={this.state.clases} borrar = {this.borrar} tipo_usuario={2}/>
                             </div>
                         </div>
-                    </div>
-
-                    <div className="fixed-action-btn">
-                        <Link className="btn-floating btn-large #536dfe indigo accent-2" to={ { pathname: '/docente/academico/grupo/' + this.props.match.params.id + '/crearClase' } }>
-                            <FaPlus className="center-align">plus</FaPlus>
-                        </Link>
                     </div>
                         
                 </div>

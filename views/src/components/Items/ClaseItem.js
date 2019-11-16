@@ -53,6 +53,18 @@ class ClaseItem extends Component {
     }
 
     render() {
+
+        var editar = null;
+
+        if(this.props.tipo_usuario == 1)
+        {
+            editar = <div className="card-action center-align">
+                        <Link to={ { pathname: '/docente/academico/grupo/' + this.props.match.params.id  + '/' + this.props.clase.id + '/modificarClase'} }><FaPencilAlt className="green-text ">Editar</FaPencilAlt></Link >
+                        <Link to={ { pathname: '/docente/academico/grupo/' + this.props.match.params.id  + '/' + this.props.clase.id + '/asistencia'} }><FaArrowAltCircleDown className="blue-text">Ver</FaArrowAltCircleDown></Link >
+                        <Link  onClick = {this.deleteHadle}><MdDelete className="red-text ">Eliminar</MdDelete></Link >   
+                    </div>
+        }
+
         return (
             <div className="col s4">
                 <div className="card sticky-action">
@@ -73,12 +85,8 @@ class ClaseItem extends Component {
                             <b>Observaciones:</b> <i className="blue-text">{this.props.clase.observacion}</i><br/>
                         </p>
                     </div>
-                    <div className="card-action center-align">
-                        <Link to={ { pathname: '/docente/academico/grupo/' + this.props.match.params.id  + '/' + this.props.clase.id + '/modificarClase'} }><FaPencilAlt className="green-text ">Editar</FaPencilAlt></Link >
-                        <Link to={ { pathname: '/docente/academico/grupo/' + this.props.match.params.id  + '/' + this.props.clase.id + '/asistencia'} }><FaArrowAltCircleDown className="blue-text">Ver</FaArrowAltCircleDown></Link >
-                        <Link  onClick = {this.deleteHadle}><MdDelete className="red-text ">Eliminar</MdDelete></Link >   
-                    </div>
-
+                    
+                    {editar}
                 </div>
             </div>
         );

@@ -65,7 +65,7 @@ function ListaClases (props) {
             <div className="row">
                 {clasesFiltradas.map(clase => {
                     return (
-                        <ClaseItem key={clase.id} clase={clase} borrar = {props.borrar}/>
+                        <ClaseItem key={clase.id} clase={clase} borrar = {props.borrar} tipo_usuario={props.tipo_usuario}/>
                     );
                 })}
             </div>

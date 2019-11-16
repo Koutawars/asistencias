@@ -110,7 +110,7 @@ class DocenteMateriaGrupo extends Component {
                     <div className="row">
                         <div className="row">
                             <div className="col s12">
-                                <ListaClases clases={this.state.clases} borrar = {this.borrar} />
+                                <ListaClases clases={this.state.clases} borrar = {this.borrar} tipo_usuario={1}/>
                             </div>
                         </div>
                     </div>
