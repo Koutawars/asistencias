@@ -41,7 +41,6 @@ class EstudianteAcademico extends Component {
             this.setState({
                 materias: res.data.materias
             });
-            console.log(res.data);
         }).catch(err => {
             console.log(err);
         });

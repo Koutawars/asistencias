@@ -7,7 +7,6 @@ var Usuario_lista = require('../../../models/Usuario_lista');
 var getMateria = async (req, res) => {
     var usuarioId = req.tokenInfo.id;
     var materias = await Materia.findAll({
-        group: ['id'],
         include: [{
             model: Grupo,
             required: true,
