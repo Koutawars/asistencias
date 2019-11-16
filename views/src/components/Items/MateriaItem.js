@@ -25,7 +25,7 @@ class MateriaItem extends Component {
         }
         else if(this.props.tipo_usuario === 2)   //Estudiante
         {
-            path = '/estudiante/academico/clases' //Manda a la lista de clases del estudiante y la clase
+            path = '/estudiante/academico/' + this.props.materia.id; //Manda a la lista de clases del estudiante y la clase
             
         }
 

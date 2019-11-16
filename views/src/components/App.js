@@ -36,7 +36,7 @@ class App extends Component {
               <Route exact path={"/docente/codigoqr"}  component={Auth(codigoQr)} ></Route>
 
               <Route exact path={"/estudiante/academico"} component={Auth(EstudianteAcademico)} ></Route>
-              <Route exact path={"/estudiante/academico/clases"}  component={Auth(EstudianteMateriaClase)} ></Route>
+              <Route exact path={"/estudiante/academico/:id"}  component={Auth(EstudianteMateriaClase)} ></Route>
             </Switch>
           </Layout>
         </BrowserRouter>
