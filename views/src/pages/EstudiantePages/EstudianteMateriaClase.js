@@ -65,7 +65,7 @@ class EstudianteMateriaClase extends Component {
         } )
         .then(res => {
             var clases = [];
-            res.data.clase.forEach(clase => {
+            res.data.clases.forEach(clase => {
                 let horaInicial, horaFinal;
                 horaInicial = clase.Horario.horaInicial.split(":")[0];
                 horaFinal = clase.Horario.horaFinal.split(":")[0];
