@@ -13,7 +13,6 @@ var getMisClases = async (req, res) => {
                 usuarioId
             },              
             attributes:[]
-
         }],
         where: {
             grupoId

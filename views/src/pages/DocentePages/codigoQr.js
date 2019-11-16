@@ -65,9 +65,26 @@ class codigoQr extends Component {
       return (
       <div>
         <NavbarLog tipo = {this.props.data.tipoId} nombre={this.props.data.nombre}></NavbarLog>
-        <video style={{paddingLeft:'25%'}} src=""></video>
-        <button onClick={this.capture}>Tomar foto</button>
-        <canvas id="canvas"></canvas>
+
+        <div className="container center-align">
+
+          <div className="row">
+            <br/>
+            <h5>Video</h5>
+            <button onClick={this.capture} className="btn btn-primary #0d47a1 blue darken-4">Tomar foto</button>
+          </div>
+
+          <div className="row">
+            <video src=""></video>
+          </div>
+
+          <div className="row">
+            <h5>Foto</h5>
+            <canvas id="canvas"></canvas>
+          </div>
+
+        </div>
+        
       </div>);
     }
 }

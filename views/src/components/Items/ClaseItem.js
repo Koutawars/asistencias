@@ -3,7 +3,7 @@ import Modelado1 from '../../images/modelado_1.jpeg';
 import Modelado2 from '../../images/modelado_2.jpeg';
 import {Link} from 'react-router-dom';
 import { FaPlus, FaMinus, FaArrowAltCircleDown, FaPencilAlt } from 'react-icons/fa';
-import { MdDelete } from 'react-icons/md'
+import { MdDelete, MdCheckCircle } from 'react-icons/md'
 import { getJwt } from '../../helpers/jwt';
 import axios from 'axios';
 import { withRouter } from 'react-router-dom';
@@ -62,6 +62,21 @@ class ClaseItem extends Component {
                         <Link to={ { pathname: '/docente/academico/grupo/' + this.props.match.params.id  + '/' + this.props.clase.id + '/modificarClase'} }><FaPencilAlt className="green-text ">Editar</FaPencilAlt></Link >
                         <Link to={ { pathname: '/docente/academico/grupo/' + this.props.match.params.id  + '/' + this.props.clase.id + '/asistencia'} }><FaArrowAltCircleDown className="blue-text">Ver</FaArrowAltCircleDown></Link >
                         <Link  onClick = {this.deleteHadle}><MdDelete className="red-text ">Eliminar</MdDelete></Link >   
+                    </div>
+        }
+        else
+        {
+            //Es estudiante
+
+            var boton =  <MdDelete className="red-text"></MdDelete>
+            
+            if(this.props.clase.asistio == "SI")
+            {
+                boton = <MdCheckCircle className="green-text"></MdCheckCircle>
+            }
+
+            editar = <div className="card-action center-align">
+                        {boton}
                     </div>
         }
 

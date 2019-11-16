@@ -64,12 +64,13 @@ class AsistenciaItem extends Component {
 
     componentWillReceiveProps(nextProps, nextContext){
         var asistio = nextProps.estudiante.asistio;
+        console.log(asistio);
         if(asistio == 'NO'){
             console.log(document.querySelectorAll("#checkbo")[0]);
-            document.querySelectorAll("#checkbo")[0].checked = false;
+            document.querySelectorAll("#checkbo" + nextProps.estudiante.id)[0].checked = false;
         }else {
             console.log(document.querySelectorAll("#checkbo")[0]);
-            document.querySelectorAll("#checkbo")[0].checked = true;
+            document.querySelectorAll("#checkbo" + nextProps.estudiante.id)[0].checked = true;
         }
     }
     render() {
@@ -77,7 +78,7 @@ class AsistenciaItem extends Component {
         var layer = <div className="switch">
             <label>
                 <IoIosCloseCircle className="red-text"></IoIosCloseCircle>
-                <input id="checkbo" onChange={this.handleChange} type="checkbox" />
+                <input id={"checkbo" + info.id} onChange={this.handleChange} type="checkbox" />
                 <span className="lever"></span>
                 <MdCheckCircle className="green-text"></MdCheckCircle>
             </label>

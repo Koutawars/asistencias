@@ -80,48 +80,52 @@ class EstudianteMateriaClase extends Component {
                     salon: clase.Horario.salon
                 })
             });
-            this.setState({
-                clases
-            })
+            url = "http://" + window.location.hostname + ":5000/api/estudiante/" + grupoId + "/getMisClases";
+            console.log(url);
+            
+            axios.get(url,
+            {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${jwt}`
+                }
+            } )
+            .then(resp => {
+                var clases_2 = resp.data.clases;
+                console.log("RES: ", resp.data.clases)
+                var clasesVino = [];
+                var asistio = false;
+                clases.forEach(e => {
+                    clases_2.forEach(cos => {
+                        console.log(cos.id, e.id);
+                        if(cos.id == e.id){
+                            asistio = true;
+                        }
+                    })
+                    if(asistio){
+                        e.asistio = 'SI';
+                    }else{
+                        e.asistio = 'NO';
+                    }
+                    clasesVino.push(e);
+                    asistio = false;
+                })
+                this.setState({
+                    clases:clasesVino
+                })
+                console.log(this.state)
+            }).catch(err => {
+                console.log(err);
+            });
             console.log(clases);
         }).catch(err => {
             console.log(err);
         });
 
-        url = "http://" + window.location.hostname + ":5000/api/estudiante/" + grupoId + "/getMisClases";
-        console.log(url);
-        
-        axios.get(url,
-        {
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${jwt}`
-            }
-        } )
-        .then(res => {
-            var clases_2 = [];
-            res.data._2.forEach(clase => {
-                let horaInicial, horaFinal;
-                horaInicial = clase.Horario.horaInicial.split(":")[0];
-                horaFinal = clase.Horario.horaFinal.split(":")[0];
-                clases_2.push({
-                    id: clase.id,
-                    horario: this.getDia(clase.Horario.dia) + " " +  horaInicial + "-" + horaFinal,
-                    tema: clase.tema,
-                    observacion: clase.observaciones,
-                    fecha: clase.fecha,
-                    salon: clase.Horario.salon
-                })
-            });
-            this.setState({
-                clases_2
-            })
-            console.log(clases_2);
-        }).catch(err => {
-            console.log(err);
-        });
 
         //Hacer iteraciones para comparar clases totales y clases a las que asistio
+
+        console.log(this.state)
 
     }
 
