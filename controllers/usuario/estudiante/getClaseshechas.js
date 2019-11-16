@@ -1,24 +1,22 @@
 var Grupo = require('../../../models/Grupo');
-var Lista = require('../../../models/Lista');
-var Usuario_lista = require('../../../models/Usuario_lista');
 var Clase = require('../../../models/Clase');
-
-
-var getClases = async (req, res) => {
+var getClaseshechas = async (req, res) => {
     var grupoId = req.params.id;
     var usuarioId = req.tokenInfo.id;
-    var numClases = await Clase.count({
+    var clases = await Clase.findAll({
         include: [{
             model: Grupo,
             where: {
                 id:grupoId
-            }
+            },              
+            attributes:[]
         }]
     })
     .catch(err => {
         console.error(err);
     });
-    res.json({numClases});
+    res.json({clases});
 }
 
-module.exports = getClases;
+
+module.exports = getClaseshechas;

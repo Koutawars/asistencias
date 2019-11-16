@@ -6,19 +6,19 @@ const Sequelize = require('sequelize');
 
 
 var getMiClases = async (req, res) => {
-    var claseId = req.params.id;
+    var grupoId = req.params.id;
     var usuarioId = req.tokenInfo.id;
     const Op = Sequelize.Op 
     var numMiClases = await Clase.count({
         include: [{
             model: Usuario_clase,
             where: {
-                [Op.and]:[{
-                    usuarioId,
-                    claseId
-                }]
+                usuarioId
             }
-        }]
+        }],
+        where: {
+            grupoId
+        }
     })
     .catch(err => {
         console.error(err);
