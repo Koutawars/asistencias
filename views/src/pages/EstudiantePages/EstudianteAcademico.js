@@ -29,6 +29,9 @@ class EstudianteAcademico extends Component {
     componentDidMount(){
         const jwt = getJwt();
         let url = "http://" + window.location.hostname + ":5000/api/estudiante/getMateria";//obtener materias de estudiante con id del que pide
+        
+        console.log("URL: ", url);
+        
         axios.get(url,
         {
             headers: {
@@ -37,7 +40,7 @@ class EstudianteAcademico extends Component {
             }
         } )
         .then(res => {
-            console.log(res.data);
+            console.log("RES DATA: ", res.data);
             this.setState({
                 materias: res.data.materias
             });

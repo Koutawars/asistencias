@@ -37,7 +37,7 @@ class Docente extends Component {
     }
     render() {
         const info = this.state;
-
+        console.log(this.state);
         return (
             <React.Fragment>
                 <NavbarLog tipo = {this.props.data.tipoId} nombre={this.props.data.nombre}></NavbarLog>

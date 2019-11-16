@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-11-2019 a las 02:02:02
+-- Tiempo de generación: 16-11-2019 a las 04:06:10
 -- Versión del servidor: 10.1.29-MariaDB
 -- Versión de PHP: 7.1.12
 
@@ -42,7 +42,9 @@ CREATE TABLE `clases` (
 --
 
 INSERT INTO `clases` (`id`, `grupoId`, `tema`, `fecha`, `observaciones`, `horarioId`) VALUES
-(1, 1, 'Como hacer documentación.', '2019-08-11', '', 1);
+(1, 1, 'Como bailar', '2019-11-30', '', 1),
+(2, 1, 'Hola', '2019-11-16', '', 1),
+(4, 1, 'ASDASD', '2019-11-13', '', 1);
 
 -- --------------------------------------------------------
 
@@ -207,8 +209,8 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `tipoId`, `nombre`, `password`, `codigo`, `documento`, `email`) VALUES
-(1, 1, 'Johan David Robles Lozano', '123', NULL, 123, 'admikouta@gmail.com'),
-(2, 2, 'Carlos Miguel Campo Navarro', '1234', 1234, 1076089044, 'ccampo@gmail.com');
+(1, 1, 'Johan David Robles Lozano', '123', NULL, 123, 'johanrobles@hotmail.com'),
+(2, 2, 'Carlos Miguel Campo Navarro', '1234', 1234, 1076089044, 'admikouta@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -221,6 +223,14 @@ CREATE TABLE `usuario_clases` (
   `usuarioId` int(11) NOT NULL,
   `claseId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `usuario_clases`
+--
+
+INSERT INTO `usuario_clases` (`id`, `usuarioId`, `claseId`) VALUES
+(15, 2, 2),
+(16, 2, 4);
 
 -- --------------------------------------------------------
 
@@ -321,7 +331,7 @@ ALTER TABLE `usuario_listas`
 -- AUTO_INCREMENT de la tabla `clases`
 --
 ALTER TABLE `clases`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `grupos`
@@ -369,7 +379,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `usuario_clases`
 --
 ALTER TABLE `usuario_clases`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario_listas`
