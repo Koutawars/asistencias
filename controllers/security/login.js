@@ -10,7 +10,6 @@ var login = async (req, res) => {
     var password = req.body.password;
     // acá estaría la conexión a la base de datos...
     var buscado;
-    //consulta para sacar
     try {
       buscado = await Usuario.findOne({
         where: {
@@ -34,7 +33,6 @@ var login = async (req, res) => {
     }catch(err){
         console.error("Error: ", err);
     }
-    //en caso de no encontrar
     if(!buscado){
       res.status(401).send({
         error: 'Usuario o contraseña inválidos'
@@ -48,7 +46,6 @@ var login = async (req, res) => {
         usuario: usuario
         // MAS DATOS...
     }
-    //crea el token
     var token = jwt.sign(tokenData, 'Contraseña secreta', {
         expiresIn: 60 * 60 * 24 //expira en 24 hora
      })
